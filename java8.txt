@@ -1,0 +1,550 @@
+Reserved words 
+===============
+There are some identifiers which are reserved to associate some functionality or meaning such type of identifiers are called reserved words.
+
+Java supports 53 reserved words.
+
+All reserved words we need to declare under lowercase letters only.
+
+In java, reserved words are divided into two types.
+
+Diagram: java8.1
+
+Used keywords with respect to class
+----------------------------------
+package 
+import
+class
+interface
+enum
+extends
+implements 
+
+Used keywords with respect to object
+---------------------------------
+new 
+instanceof
+this
+super 
+
+Used keywords with respect to datatype
+--------------------------------
+byte
+short
+int
+long
+float
+double
+boolean
+char 
+
+Used keywords with respect to modifiers
+-------------------------------
+default
+public
+private
+protected
+final
+static
+abstract 
+strictfp
+synchronized
+transient
+volatile
+native
+
+Used keywords with respect to flow control
+-------------------------------
+if 
+else
+switch
+case 
+for
+do
+while
+continue
+break 
+
+Used keywords with respect to returntype
+---------------------------
+void 
+
+Used keywords with respect to exception handling
+---------------------
+try
+catch
+throw
+throws
+finally
+assert 
+
+Types of variables
+==================
+A name which is given to a memory location is called variable.
+
+Purpose  of variable is used to store the data.
+
+In java, we have two types of variables.
+
+1)Primitive variables 
+---------------------
+	It is used to represent primitive values.
+
+2)Reference variables 
+---------------------
+	It is used to represent object reference.
+	ex:
+		Student s=new Student();
+			|
+		reference variable 
+
+Based on the position and execution these variables are divided into three types.
+
+1)Instance variable / Non-static variable 
+
+2)Static variable / Global variable 
+
+3)Local variable / Temperory variable / Automatic variable 
+
+1)Instance variable
+--------------------
+A value of a variable which is varied(changes) from object to object is called instance variable.
+
+Instance variable will create memory at the time of object creation and it will destroy at the time of object destruction.Hence scope of instance variable is same as scope of an object.
+
+Instance variable will store in heap area as a part of an object.
+
+Instance variable must and should declare immediately after the class but not inside methods, blocks and constructors.
+
+Instance variable access directly from instance area but we can't access directly from static area.
+
+To access instance variable from static area we need to create object reference.
+
+ex:1
+----
+class Test
+{
+	//instance variable
+	int i=10;
+	
+	public static void main(String[] args)
+	{
+		System.out.println(i);//C.T.E 
+	}
+}
+
+ex:2
+----
+class Test
+{
+	//instance variable
+	int i=10;
+	
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		System.out.println(t.i);//10
+	}
+}
+
+Note:
+------
+If we won't initialize any value to instance variable then JVM will initialize default values.
+
+ex:3
+-----
+class Test
+{
+	//instance variable
+	boolean b;
+	
+	public static void main(String[] args)
+	{
+		Test t=new Test();
+		System.out.println(t.b);//false 
+	}
+}
+
+ex:4
+----
+class Test
+{
+	public static void main(String[] args)
+	{
+		//calling 
+		Test t=new Test();
+		t.m1();
+	}
+	
+	//non-static method 
+	public void m1()
+	{
+		System.out.println("Instance-Method");
+	}
+}
+
+2)Static variable 
+------------------
+A value of a variable which is not varied from object to object is called static variable.
+
+A static variable will be created at the time of classloading and it will destroy at the time of classunloading.Hence scope of static variable is same as scope of .class file.
+
+Static variable will store in method area.
+
+Static variable must and should declare immediately after the class by using static keyword but not inside methods,blocks and constructors.
+
+Static variable can access directly from instance area as well as from static area.
+
+Static variable can access by using object reference or class name.
+
+
+ex:1
+-----
+class Test
+{
+	//static variable 
+	static int i=10;
+
+	public static void main(String[] args)
+	{
+		System.out.println(i); //10
+
+		Test t=new Test();
+		System.out.println(t.i);//10
+
+		System.out.println(Test.i);//10	
+	}
+}
+
+Note:
+-------
+If we won't initialize any value to static variable then JVM will initialize default values.
+
+ex:2
+----
+class Test
+{
+	//static variable 
+	static String s;
+
+	public static void main(String[] args)
+	{
+		System.out.println(s);		
+	}
+}
+
+ex:3
+-----
+class Test
+{
+	public static void main(String[] args)
+	{
+		//calling
+		m1();
+
+		Test t=new Test();
+		t.m1();
+
+		Test.m1();	
+	}
+	//static method 
+	public static void m1()
+	{
+		System.out.println("static-method");
+	}
+	
+}
+
+3)Local variable
+----------------
+To meet temperory requirements a programmer will declare some variables inside methods,blocks and constructors.Such type of variables are called local variables.
+
+Local variable will be created when execution block is declared and it will destroy when execution block is executed.Hence scope of local variable is same as scope of a execution block where it is declared.
+
+Local variable will store in java stack memory.
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		//local variable
+		int i=10;
+
+		System.out.println(i);	
+	}
+}
+
+Note:
+-----
+If we won't initialize any value to local variable then JVM will not initialize any default value.
+
+ex:2
+-----
+class Test
+{
+	public static void main(String[] args)
+	{
+		//local variable
+		int i;
+
+		System.out.println(i);	//C.T.E 
+	}
+}
+o/p:
+	variable i might not have been initialized
+
+A local variable will accept only one modifier i.e final.
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		//local variable
+		final int i=10;
+
+		System.out.println(i);	//10
+	}
+}
+
+Interview Question
+==================
+Q)What is Literal?
+
+A value which is assigned to a variable is called literal.
+
+A value which is not change during the program execution is called literal.
+
+ex:
+	int  x = 10;
+	|    |	 |____ value of a variable / Literal 	 
+	|    |________ variable name / Identifier 
+	|_____________ datatype / Keyword
+
+
+Q)Is Java purely object oriented or not?
+
+No , Java never consider as purely object oriented programming language because it does not support many OOPS concepts multiple inheritance, operator overloading and more ever we depends upon primitive datatypes which are non-objects.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

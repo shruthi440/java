@@ -1,0 +1,504 @@
+Abstract class
+===============
+Abstract class is a collection of abstract methods and concrete methods.
+
+A "abstract" keyword is applicable for methods and classes but not for variables.
+
+It is not possible to create object for abstract class.
+
+To implement abstract methods of a abstract class we will use sub classes.
+
+By default every abstract is a public and abstract.
+
+Abstract class contains only instance variables.
+
+syntax:
+-------
+	abstract class <class_name>
+	{
+		-
+		- //instance variables 
+		- //abstract methods
+		- //concrete methods 
+		-
+	}
+
+If we know partial implementation then we need to use abstract class.
+
+ex:
+----
+abstract class Plan
+{
+	//instance variable
+	protected double rate;
+
+	//abstract method
+	public abstract void getRate();
+
+	public void calculateBillAmt(int units)
+	{
+		System.out.println("Total Units :"+units);
+		System.out.println("Total Bill  :"+rate*units);
+	}
+}
+class DomesticPlan extends Plan
+{
+	public void getRate()
+	{
+		rate=2.5f;
+	}
+}
+class CommercialPlan extends Plan
+{
+	public void getRate()
+	{
+		rate=5.0f;
+	}
+}
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		DomesticPlan dp=new DomesticPlan();
+		dp.getRate();
+		dp.calculateBillAmt(250);
+
+		CommercialPlan cp=new CommercialPlan();
+		cp.getRate();
+		cp.calculateBillAmt(250);
+	}
+}
+
+Q)What is the difference between interface and abstract class?
+
+Interface					Abstract class
+--------------					---------------
+To declare interface we will use interface 	To declare abstract class we will use 
+keyword.					abstract keyword.
+
+It is a collection of abstract methods,		It is a collection of abstract methods and 
+default methods and static methods.		concrete methods.
+
+It contains only constants.			It contains only instance variables.
+
+We can achieve multiple inheritance.		We can't achieve multiple inheritance.
+
+To write the implementation of abstract 	To write the implementation of abstract 
+methods of an interface we will use 		methods of a abstract class we will use 
+implementation class.				sub classes.
+
+If we know specification then we need to use 	If we know partial implementation then we 
+interface.					need to use abstract class.
+
+
+API
+====
+API stands Application Programming Interface.
+
+It is a collection of packages.
+
+It is a base for the programmer to develop software applications.
+
+In java , we have three types of API's.
+
+1) Predefined API
+------------------
+Built-In API is called predefined API.
+ex:
+	https://docs.oracle.com/javase/8/docs/api/
+
+2) Userdefined API 
+------------------
+API which is created by the user based on the application requirement.
+
+
+3) Third party API 
+-------------------
+API which is given by third party vendor.
+ex:
+	JAVAZOOM API 
+	iText API 	
+	and etc.
+
+Package
+========
+A package is a collection of classes , interfaces ,enums and annotations.
+
+Here enum is a special class and annotation is a special interface.
+
+In general, a package is a collection of classes and interfaces.
+
+Package is also known as folder or a directory.
+
+In java packages are divided into two types.
+
+1)Predefined packages
+
+2)Userdefined packages 
+
+1)Predefined packages
+-------------------
+Built-In packages are called predefined packages.
+ex:
+	java.lang
+	java.util
+	java.time
+	java.io
+	java.util.stream
+	java.text 
+	and etc.
+
+2)Userdefined packages 
+------------------------
+Packages which are created by the user based on the application requirement are 
+userdefined packages.
+
+To declare userdefined package we need to use "package" keyword.
+
+syntax:
+		package package_name;
+
+It is recommanded to use package name in the reverse order of url.
+ex:
+		package  com.ihub.www;   
+
+ex:
+-----
+package com.ihub.www;
+import java.util.Calendar;
+class  Test
+{
+	public static void main(String[] args) 
+	{
+		Calendar c=Calendar.getInstance();	
+		
+		//convert time to 24 hours
+		int h=c.get(Calendar.HOUR_OF_DAY);
+
+		if(h<12)
+			System.out.println("Good Morning");
+		else if(h<16)
+			System.out.println("Good Afternoon");
+		else if(h<20)
+			System.out.println("Good Evening");
+		else
+			System.out.println("Good Night");
+	}
+}
+
+We can compile above program by using below command.
+ex:
+		current directory 
+		      |
+	javac   -d    .    Test.java
+		 |
+	    	destination 
+		folder 
+
+We can execute above program by using below command.
+ex:
+	java   com.ihub.www.Test 
+			|
+		package name 
+
+
+Singleton Class
+================
+A class which allows us to create only one object is called singleton class.
+
+Using a class if we call any method and that methods returns same class object then that 
+class is called singleton class.
+
+We have following list of singleton classes in java.
+
+ex:
+	LocalDate 
+	LocalTime 
+	Calendar 
+	and etc.
+
+To create singleton class we required private constructor and factory method.	
+
+ex:
+
+class Singleton
+{
+
+	static Singleton singleton=null;
+
+	//private constructor
+	private Singleton()
+	{
+		//empty
+	}
+
+	//factory method
+	public static Singleton getInstance()
+	{
+		if(singleton==null)
+		{
+			singleton=new Singleton();
+		}
+
+		return singleton;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Singleton s1=Singleton.getInstance();
+		System.out.println(s1.hashCode());
+
+		Singleton s2=Singleton.getInstance();
+		System.out.println(s2.hashCode());
+
+		Singleton s3=Singleton.getInstance();
+		System.out.println(s3.hashCode());
+	}
+}
+
+Inner classes
+==============
+Sometimes we will declare a class inside another class such concept is called inner class.
+ex:
+	class Outer_Class
+	{
+		class Inner_Class
+		{
+			-
+			- //code to be execute
+			-
+		}
+	}
+
+Inner class must be with in the scope of outer class or enclosing class.
+
+Inner class introduced as a part of event handling to remove GUI bugs.
+
+But due to powerful features and benefits of inner classes.Programmers started to use 
+inner classes in our regular programming.
+
+In java 8 version, We can't declare static members in inner class.
+
+
+Accessing inner class data from static area of outer class
+----------------------------------------------------------
+class Outer
+{
+	class Inner
+	{
+		//non-static methods 
+		public void m1()
+		{
+			System.out.println("M1-Method");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		Outer.Inner i=new Outer().new Inner();
+		i.m1();
+	}
+}
+
+If we compile above program we will get two .class files i.e 
+Outer.class and Outer$Inner.class.
+
+ex:2
+-----
+class Outer
+{
+	class Inner
+	{
+		//non-static methods 
+		public void m1()
+		{
+			System.out.println("M1-Method");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		new Outer().new Inner().m1();
+	}
+}
+
+
+Accessing inner class data from non-static area of outer class
+----------------------------------------------------------
+class Outer
+{
+	class Inner
+	{
+		//non-static methods 
+		public void m1()
+		{
+			System.out.println("M1-Method");
+		}
+	}
+	public void m2()
+	{
+		Inner i=new Inner();
+		i.m1();
+	}
+
+	public static void main(String[] args)
+	{
+		Outer o=new Outer();
+		o.m2();
+	}
+}
+
+
+If we compile above program we will get two .class files i.e 
+Outer.class and Outer$Inner.class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

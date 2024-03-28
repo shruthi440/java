@@ -1,0 +1,399 @@
+Q)Write a java program to find out duplicate elements from given array?
+
+input:
+	4 6 1 2 9 1 4 3 7 9 
+
+output:
+	4 1 9
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,1,2,9,1,4,3,7,9};
+
+		//duplicate elements
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					System.out.print(arr[i]+" ");
+				}
+			}
+		}
+	}
+}
+
+Q)Write a java program to display unique elements from given array?
+
+input:
+	4 6 1 2 9 1 4 3 7 9 
+
+output:
+	6 2 3 7 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,1,2,9,1,4,3,7,9};
+
+		//unique elements
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(cnt==1)
+				System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+Q)Write a java program to display most repeating element from given array?
+
+input:
+	4 5 1 2 3 1 7 7 9 7 3 7 5 5 
+
+output:
+	7 is repeating for 4 times 
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,5,1,2,3,1,7,7,9,7,3,7,5,5};
+		
+		int element=0;
+		int maxCount=0;
+
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt)
+			{
+				maxCount=cnt;
+				element=arr[i];
+			}
+		}
+		System.out.println(element+" is repeating for "+maxCount+" times");
+	}
+}
+
+Q)Write a java program to display prime elements from given array?
+
+input:
+	5 9 13 17 21 23  6  4 
+
+output:
+	5 13 17 23  
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,9,13,17,21,23,6,4};
+
+		//for each loop
+		for(int n:arr)
+		{
+			//prime logic 
+			boolean flag=true;
+			
+			for(int i=2;i<=n/2;i++)
+			{
+				if(n%i==0)
+				{
+					flag=false;
+					break;
+				}
+			}
+			if(flag==true)
+				System.out.print(n+" ");
+		}
+	}
+}
+
+Q)Write a java program to segregate array elements?
+
+input:
+	1 0 1 1 0 0 1 0 1 0
+
+output:
+	0 0 0 0 0 1 1 1 1 1 
+
+ex:
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,0,1,1,0,0,1,0,1,0};
+
+		Arrays.sort(arr);
+
+		//display
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+appoach2
+---------
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,0,1,1,0,0,1,0,1,0};
+
+		int[] newArr=new int[arr.length];	
+
+
+		//inserting '0'
+		//for each loop
+		int j=0;
+		for(int i:arr)
+		{
+			if(i==0)
+			{
+				newArr[j++]=i;  
+				
+			}
+		}
+
+		//inserting '1'
+		while(j<arr.length)
+		{
+			newArr[j++]=1;
+		}
+
+		//display
+		for(int i:newArr)
+		{
+			System.out.print(i+" ");
+		}
+
+	}
+}
+
+Q)Write a java program find out leader elements from given array?
+
+input:
+	5   7   34    16   4   8
+
+output:
+	8  16   34
+
+ex:
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,7,34,16,4,8};
+
+		int max=arr[arr.length-1];
+
+		System.out.print(max+" ");
+
+		//reading reverse
+		for(int i=arr.length-2;i>=0;i--)
+		{
+			if(arr[i]>max)
+			{
+				max=arr[i];
+				System.out.print(max+" ");
+			}
+		}
+	}
+}
+
+Q)Write a java program to display missing element from given array?
+
+input:
+	1 6 3 5 2 
+
+output:
+	4  
+
+ex:
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={1,6,3,5,2};
+
+		int sum_of_arr_ele=arr.length+1;
+
+		int max=(sum_of_arr_ele*(sum_of_arr_ele+1))/2;
+
+		for(int i:arr)
+		{
+			max=max-i;
+		}
+		System.out.println(max);
+	}
+}
+
+
+Q)Write a java program to perform sum of two array elements?
+
+input:
+	1 7 2 5 3
+
+	9 4 8 6 10
+
+output:
+	10  11  10  11  13
+
+ex:
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1={1,7,2,5,3};
+		int[] arr2={9,4,8,6,10};
+
+		int[] resArr=new int[arr1.length];
+
+		int j=0;
+		for(int i=0;i<arr1.length && i<arr2.length;i++)
+		{
+			resArr[j++]=arr1[i]+arr2[i];
+		}
+
+		//display
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

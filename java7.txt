@@ -1,0 +1,394 @@
+Datatypes
+==========
+Datatype describes what type of value we want to store inside a variable.
+
+Datatype also tells how much memory has to be created for the variable.
+
+In java, datatypes are divided into two types.
+
+Diagram: java7.1
+
+byte
+-----
+It is a smallest datatype in java.
+
+Size: 1 byte (8 bits)
+
+Range : -128 to 127 (-2^7 to 2^7-1)
+
+ex:
+	1) byte b=10;
+           System.out.println(b); //10
+
+	2) byte b=140;
+           System.out.println(b); //C.T.E 
+
+	3) byte b=10.5;
+           System.out.println(b); //C.T.E 
+
+
+short
+-------
+It is a rarely used datatype in java.
+
+Size : 2 bytes (16 bits)
+
+Range : -32768 to 32767 (-2^15 to 2^15-1)
+
+ex:
+	1) byte b=10;
+	   short s=b;
+	   System.out.println(s); //10 
+
+	2) short s=10.5;
+	   System.out.println(s); //C.T.E 
+
+	3) short s="hi";
+	   System.out.println(s); // C.T.E 
+
+int
+-----
+It is mostly used datatype in java.
+
+Size : 4 bytes (32 bits)
+
+Range : -2147483648 to 2147483647 (-2^31 to 2^31-1)
+
+ex:
+---
+	1) int i=10.5;
+ 	   System.out.println(i); //C.T.E 
+
+	2) int i="hi";
+	   System.out.println(i); //C.T.E 
+
+	3) int i=true;
+	   System.out.println(i); //C.T.E 
+
+	4) int i='a';
+           System.out.println(i); // 97
+
+Note:
+-----
+In java, For every character we have universal unicode value.
+ex:
+	a = 97 
+	A = 65
+
+long
+------
+If int datatype is not enough to hold large value then we need to use long datatype.
+
+Size: 8 bytes (64 bits)
+
+Range : (-2^63 to 2^63-1)
+
+ex:
+
+	1) long l="A";
+	   System.out.println(l); // C.T.E 
+
+	2) long l=true;
+	   System.out.println(l); // C.T.E 
+
+	3) long l=10.4;
+	   System.out.println(l); // C.T.E 
+
+	4) long l='A';
+           System.out.println(l); // 65
+
+float					double
+--------				--------
+If we need 4 to 6 decimal point of 	If we need 14 to 16 decimal point of 
+accuracy then we need to use float.	accuracy then we need to use double.
+
+Size: 4 bytes (32 bits)			Size: 8 bytes (64 bits)
+
+Range: -3.4e38 to 3.4e38		Range: -1.7e308 to 1.7e308.
+
+To declare a float value we need to 	To declare a double value we need to
+suffix with 'f'.			suffix with 'd'.
+ex:					ex:
+	10.5f;					10.5d;
+
+ex:
+---
+	1) float f=10;
+	   System.out.println(f); //10.0
+
+	2) float f=10.5f;
+	   System.out.println(f); //10.5
+
+	3) float f='a';
+	   System.out.println(f); //97.0
+
+	4) float f="hi";
+	   System.out.println(f); //C.T.E 
+
+	5) float f=true;
+	   System.out.println(f); //C.T.E 
+
+
+ex:
+---
+	1) double d=10;
+	   System.out.println(d); //10.0
+
+	2) double d=10.5d;
+	   System.out.println(d); //10.5
+
+	3) double d='a';
+	   System.out.println(d); //97.0
+
+	4) double d="hi";
+	   System.out.println(d); //C.T.E 
+
+	5) double d=true;
+	   System.out.println(d); //C.T.E 
+
+boolean
+----------
+A boolean datatype will accept boolean values either true or false.
+
+Size: (Not Applicable)
+
+Range : (Not Applicable)
+
+ex:
+	1) boolean b="true";
+	   System.out.println(b); // C.T.E 
+
+	2) boolean b=TRUE;
+	   System.out.println(b); //C.T.E 
+
+	3) boolean b=true;
+	   System.out.println(b); // true 
+
+char
+-----
+It is a single character which is enclosed in a single quotation.
+
+Size: 2 bytes (16 bits)
+
+Range : 0 to 65535
+
+ex:
+	1) char c="a";
+	   System.out.println(c); // C.T.E 
+
+	2) char c='a';
+	   System.out.println(c); // a 
+
+	3) char c=100;
+	   System.out.println(c); // d
+
+Diagram: java7.2
+
+
+Q)Write a java program to display byte range?
+
+range : -128 to 127 
+
+ex:
+	
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Byte.MIN_VALUE);
+		System.out.println(Byte.MAX_VALUE);
+	}
+}
+
+Q)Write a java program to display int range?
+
+range : -2147483648 to 2147483647
+
+ex:
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Integer.MIN_VALUE);
+		System.out.println(Integer.MAX_VALUE);
+	}
+}
+
+Identifiers
+==========
+A name in java is called identifier.
+
+It can be class name, variable name , method name or label name.
+
+ex:
+	class Test
+	{
+		public static void main(String[] args)
+		{
+			int x = 10;
+			
+			System.out.println(x);
+		}
+	}
+	Here Test, main, args and x are identifiers.
+
+Rules to declare an identifier
+--------------------------------
+Rule1:
+------
+	Identifier will accept following characters.
+	ex:
+		A-Z
+		a-z
+		0-9
+		_
+		$
+
+Rule2:
+-------		
+	If we take other characters then we will get compile time error.
+	ex:
+		int $=10;  //valid 
+		int _abcd; //valid 
+		int ab_cd; //valid 
+		int ab#cd; //invalid 
+		int @=10;  //invalid 
+
+Rule3:
+-----
+	Every identifier must and should starts with alphabet, underscore 
+	or dollar symbol but not with digit.
+	ex:
+		int  a1234; //valid 	
+		int  _1234; //valid 
+		int  1abcd; //invalid 
+
+Rule4:
+-----
+	We can't take reserved words as an identifier.
+	ex:
+		int  if; //invalid 
+		int  else; //invalid 
+		int   for; //invalid 
+
+Rule5:
+-----
+	Every identifier is a case sensitive.
+	ex:
+		int number;
+		int NUMBER;
+		int NumBer; 
+
+Rule6:
+-----
+	There is no length limit for an identifier but it is not recommanded
+	to take more then 15 characters.	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,351 @@
+Q)Write a java program to display duplicate characters from given String?
+
+input:
+	google 
+
+output:
+	og 
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="google";
+
+		String duplicates="";
+		String characters="";
+
+		for(int i=0;i<str.length();i++)
+		{
+			String current=Character.toString(str.charAt(i));
+			
+			if(characters.contains(current))
+			{
+				if(!duplicates.contains(current))
+				{
+					duplicates+=current;
+					continue;
+				}
+			}
+			characters+=current;
+		}
+		System.out.println(duplicates);
+	}
+}
+
+
+
+
+Q)Write a java program to display unique/distinct characters from given String?
+
+input:
+	google 
+
+output:
+	gole
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="google";
+
+		String duplicates="";
+		String characters="";
+
+		for(int i=0;i<str.length();i++)
+		{
+			String current=Character.toString(str.charAt(i));
+			
+			if(characters.contains(current))
+			{
+				if(!duplicates.contains(current))
+				{
+					duplicates+=current;
+					continue;
+				}
+			}
+			characters+=current;
+		}
+		System.out.println(characters);
+	}
+}
+
+Q)Write a java program to display the string in below format?
+
+input:
+	A1B2C3D4
+output:
+	ABBCCCDDDD
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="A1B2C3D4";
+
+		for(int i=0;i<str.length();i++)
+		{
+			if(Character.isAlphabetic(str.charAt(i)))
+			{
+				System.out.print(str.charAt(i));
+			}
+			else
+			{
+				int j=Character.getNumericValue(str.charAt(i));
+				
+				for(int k=1;k<j;k++)
+				{
+					System.out.print(str.charAt(i-1));
+				}
+			}
+		}
+
+	
+	}
+}
+
+Q)Write a java program to display most repeating character from given string?
+
+input:
+	googleformat 
+
+output:
+	o is repeating for 3 times 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="googleformat";
+
+		int maxCount=0;
+		char character=' ';
+
+		for(int i=0;i<str.length();i++)
+		{
+			int cnt=0;
+
+			for(int j=0;j<str.length();j++)
+			{
+				if(str.charAt(i)==str.charAt(j))
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt)
+			{
+				maxCount=cnt;
+				character=str.charAt(i);
+			}
+		}
+		System.out.println(character+" is repeating for "+maxCount+" times");
+	
+	}
+}
+
+Q)Write a java program to perform right rotation of a string?
+
+input:
+	str = ihubtalent 
+
+	cnt = 2 
+
+output:
+	ubtalentih
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str ="ihubtalent";
+
+		int cnt =2; 
+									   
+		String str1=str.substring(0,2);
+
+		String str2=str.substring(cnt,str.length());
+
+		System.out.println(str2+str1);
+		
+				
+	}
+}
+
+
+Q)Write a java program to perform left rotation of a string?
+
+input:
+	str = ihubtalent 
+
+	cnt = 2 
+
+output:
+	ntihubtale
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str ="ihubtalent";  
+
+		int cnt =2; 
+				   
+		String str1=str.substring(0,str.length()-cnt);
+		
+		String str2=str.substring(str.length()-cnt,str.length());
+
+		System.out.println(str2+str1);			
+	}
+}
+
+Q)Write a java program to display the strings starts with uppercase letters?
+
+input:	
+	This is Java session For upcoming Students
+output:
+	This Java For Students
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str ="This is Java session For upcoming Students";  
+
+		String[] sarr=str.split(" ");
+		
+		//for each loop 
+		String rev="";
+		for(String s:sarr)
+		{
+			if(s.charAt(0)>='A' && s.charAt(0)<='Z')
+			{
+				rev+=s+" ";
+			}
+		}
+		System.out.println(rev);		
+	}
+}
+
+Q)Write a java to display permutations of a given string?
+
+input:
+	ABC
+
+output:
+	ABC
+	ACB
+	BAC
+	BCA
+	CBA
+	CAB
+
+ex:
+---
+
+public class Test 
+{
+    public static void main(String[] args) 
+	{
+		String str="ABC";
+		permutations(str.toCharArray(),0);
+    }
+	public static void permutations(char[] ar, int fi)
+	{
+		if(fi==ar.length-1) 
+		{
+			System.out.println(arr);
+			return;
+		}
+		for(int i=fi;i<ar.length;i++)
+		{
+			swap(ar,i,fi);
+			permutations(ar,fi+1);
+			swap(ar,i,fi);
+		}
+	}
+	public static void swap(char[] ar,int i,int fi)
+	{
+		char temp=ar[i];
+		ar[i]=ar[fi];
+		ar[fi]=temp;
+	}
+}
+
+
+Assignment
+============
+Q)Write a java program to display the string in below format?
+
+input:
+	ABBCCCDDDD
+
+output:
+	A1B2C3D4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

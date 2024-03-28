@@ -1,0 +1,497 @@
+Q)Types of Data structures in java?
+
+We have two types of data structures in java.
+
+Diagram: java37.1
+
+
+
+Q)Write a java program to display duplicate and unique elements from given array?
+
+input:
+	2 4 6 7 9 1 3 3 6 7 2 5 7
+
+output:
+	duplicates= 2 6 7 3
+
+	unique= 2 4 6 7 9 1 3 5
+
+ex:
+----
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={2,4,6,7,9,1,3,3,6,7,2,5,7};
+
+		Set<Integer> unique=new LinkedHashSet<Integer>();
+		Set<Integer> duplicate=new LinkedHashSet<Integer>();
+
+		//for each loop
+		for(int i:arr)
+		{
+			if(!unique.add(i))
+			{
+				duplicate.add(i);
+			}
+			unique.add(i);
+		}
+		System.out.println(duplicate);
+		System.out.println(unique);
+	}
+}
+
+Multithreading
+===============
+
+Q)What is the difference between Thread and Process?
+
+Thread 
+-------
+A thread is a leight weight sub-process.
+
+We can run multiple threads concurently.
+
+One thread can communicate with another thread.
+
+
+Process
+--------
+A process is a collection of threads.
+
+We can run multiple process concurently.
+
+One process can't communicate with another process.
+
+
+Multitasking
+============
+Executing several task simultenously such concept is called multitasking.
+
+We have two types of multitasking.
+
+1)Thread based multitasking
+--------------------------
+Executing several task simultenously where each task is a same part of a program.
+
+It is best suitable for programmatic level.
+
+
+2)Process based multitasking
+----------------------------
+Executing several task simultenously where each task is a independent process.
+
+It is best suitable for OS level.
+
+
+Multithreading
+==============
+Executing several threads simultenously such concept is called multithreading.
+
+In multithreading only 10% of work should be done by a programmer and 90% of work will be done by a JAVA API.
+
+The main important application area of multithreading are.
+
+1) To implements multimedia graphics.
+
+2) To develop video games.
+
+3) To develop Animations.
+
+Ways to create a thread in java
+===============================
+There are two ways to create a thread in java.
+
+1) By extending Thread class 
+
+2) By implementing Runnable interface 
+
+
+1) By extending Thread class 
+----------------------------
+class MyThread extends Thread
+{
+	//work of a thread
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread
+		MyThread t=new MyThread();
+
+		//start a thread
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case1: Thread Schedular
+-----------------------
+If multiple threads are waiting for execution which thread will be executed will decided by thread schedular. What algorithm, mechanism  or behaviour used by thread schedular is depends upon JVM vendor. Hence we can't expect any execution order or exact output in multithreading.
+
+
+case2: Difference between t.start() and t.run()
+------------------------------------------------
+If we invoke t.start() method then a new thread will be created which is responsible to execute run() method automatically.
+
+ex:
+class MyThread extends Thread
+{
+	//work of a thread
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread
+		MyThread t=new MyThread();
+
+		//start a thread
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+If we invoke t.run() method then no new thread will be created but run() method will execute just like normal method.
+
+ex:
+
+class MyThread extends Thread
+{
+	//work of a thread
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread
+		MyThread t=new MyThread();
+
+		//no new thread
+		t.run();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case3: If we won't override run() method
+-----------------------------------------
+If we won't override run() method then Thread class run() method will execute automatically.
+
+Thread class run() method is a empty implementation.Hence we won't get any output from child thread.
+
+ex:
+class MyThread extends Thread
+{
+	
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread
+		MyThread t=new MyThread();
+
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case4: If we overload run() method
+-----------------------------------
+If we overload run() method then t.start() method always execute run() method with no parameters only.
+
+ex:
+
+class MyThread extends Thread
+{
+	public void run()
+	{
+		System.out.println("0-arg method");
+	}
+	public void run(int i)
+	{
+		System.out.println("int-arg method");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		//instantiate a thread
+		MyThread t=new MyThread();
+
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+case 5: Life cycle of a thread
+--------------------------------
+
+Diagram: java37.2
+
+Once if we create a thread then our thread will be in new or born state.
+
+Once if we call t.start() method then out thread goes to ready or runnable state.
+
+If Thread Schedular allocates to CPU then our thread enters to running state.
+
+Once the run() method execution is completed our thread will goes to dead state.
+
+2) By implementing Runnable interface 
+--------------------------------------
+class MyRunnable implements Runnable 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Child-Thread");
+		}
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		MyRunnable r=new MyRunnable();
+
+		Thread t=new Thread(r); // r is a targatable interface
+
+		t.start();
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("Parent-Thread");
+		}
+	}
+}
+
+Setting and getting name of a thread
+=====================================
+In java, every thread has a name ,explicitly provided by the programmer or automatically generated by JVM.
+
+We have following methods to set and get name of a thread.
+
+ex:
+	public final void setName(String name)
+	public final String getName() 
+
+ex:
+--
+class MyThread extends Thread 
+{
+
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Thread.currentThread().getName()); // Main 
+
+		MyThread t=new MyThread();
+		System.out.println(t.getName());// Thread-0
+
+		Thread.currentThread().setName("Parent-Thread");
+		System.out.println(Thread.currentThread().getName());//Parent-Thread
+	
+		t.setName("child-thread");
+		System.out.println(t.getName());//Child-Thread
+
+	}
+}
+
+Thread priority
+================
+In jav every thread has a priority , explicitly provided by the programmer or automatically generated by JVM.
+
+The valid range of thread priority is 1 to 10.where 1 is a least priority and 10 is a highest priority.
+
+If take more then 10 priority then we will get IllegalArgumentException.
+
+Thread class defines following standard constants as thread priorities.
+ex:
+	Thread.MAX_PRIORITY   - 10
+	Thread.NORM_PRIORITY  - 5
+	Thread.MIN_PRIORITY   - 1 
+
+We don't have such constant like LOW_PRIORITY and HIGH_PRIORITY.
+
+A thread which is having highest priority will be executed first.
+
+If multiple threads having same priority then we can't expect any execution order.
+
+Thread schedular uses thread priority while allocating to CPU.
+
+We have following methods to set and get thread priority.
+ex:
+	public final void setPriority(int priority)
+	public final int getPriority() 
+
+ex:
+---
+class MyThread extends Thread 
+{
+
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println(Thread.currentThread().getPriority()); // 5
+
+		MyThread t=new MyThread();
+		System.out.println(t.getPriority());// 5
+
+		Thread.currentThread().setPriority(9);
+		System.out.println(Thread.currentThread().getPriority());//9
+
+		System.out.println(t.getPriority());// 5
+	
+		t.setPriority(4);
+		System.out.println(t.getPriority());//4
+
+		//t.setPriority(11);//IllegalArgumentException
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

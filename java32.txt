@@ -1,0 +1,692 @@
+Diagram: java32.1
+
+If any checked exception raised in our program we must and should handle that 
+exception by using try and catch block. 
+
+try block
+=========
+It is a block which contains risky code.
+
+A try block always associate with catch block.
+
+A try block is used to throw the exception to catch block.
+
+If any exception raised in try block then try won't be executed , it will jump
+catch block.
+
+If any exception raised in the middle of the try block then rest of the code 
+won't be executed.
+
+catch block
+===========
+It is a block which contains error handling code.
+
+A catch block always associate with try block.
+
+A catch block is used to catch the exception which is thrown by try block.
+
+If there is no exception in try block then catch block won't be executed.
+
+A catch block will take exception name as a parameter and that name must match 
+with exception class name.
+
+syntax:
+--------
+try
+{
+	-
+	- // Risky Code 
+	-
+}
+catch(ArithmeticException ae)
+{
+	-
+	- // Error Handling Code 
+	-
+}
+
+ex:1
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("try-block");
+		}
+		catch (Exception e)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+o/p:
+	try-block 
+
+ex:2
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (Exception e)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+o/p:
+	catch-block
+
+ex:3
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("stmt1");
+			System.out.println(10/0);
+			System.out.println("stmt2");
+		}
+		catch (Exception e)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+o/p:
+	stmt1
+	catch-block
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("stmt1");
+			System.out.println(10/0);
+			System.out.println("stmt2");
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("catch-block");
+		}
+	}
+}
+
+A try with multiple catch blocks
+-------------------------------
+A try block can have multiple catch blocks. 
+
+If a try block contains multiple catch blocks then order of catch blocks are very important, it should be from child to parent but not from parent to child.
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			System.out.println("From AE");
+		}
+		catch (RuntimeException re)
+		{
+			System.out.println("From RE");
+		}
+		catch (Exception e)
+		{
+			System.out.println("From E");
+		}
+	}
+}
+o/p:
+	from AE 
+
+Various methods to display exception details
+-------------------------------------------------
+Throwable class defines following methods to display exception details.
+
+1) printStackTrace()
+-------------------
+It will display name of the exception, description of the exception  and line number of the exception.
+
+2) toString()
+------------
+It will display name of the exception and description of the exception.
+
+3) getMessage() 
+---------------
+It will display description of the exception.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			ae.printStackTrace();
+			
+			System.out.println("=====================");
+
+			System.out.println(ae.toString());
+
+			System.out.println("=====================");
+
+			System.out.println(ae.getMessage());
+		}
+		
+	}
+}
+
+Q)How to handle multiples exceptions in catch block?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException | ClassCastException | NullPointerException  e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+}
+
+finally block
+===============
+It is never recommanded to maintain cleanup code in try block because if any exception raise in try block then try block won't be executed.
+
+It is never recommanded to maintain cleanup code in catch block because if there is no exception in try block then catch block won't be executed.
+
+We need a place where we can maintain the cleanup code and it should execute irrespective of exception is raised or not.Such block is called finally block.
+
+syntax:
+------
+try
+{
+	-
+	- //Risky Code 
+	-
+}
+catch(Exception e)
+{
+	-
+	- //Error handling code 
+	-
+}
+finally
+{
+	-
+	- //cleanup code 
+	-
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("try-block");
+		}
+		catch (ArithmeticException ae)
+		{
+			ae.printStackTrace();
+		}
+		finally
+		{
+			System.out.println("finally-block");
+		}
+		
+	}
+}
+
+o/p:
+	try-block
+	finally-block
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println(10/0);
+		}
+		catch (ArithmeticException ae)
+		{
+			ae.printStackTrace();
+		}
+		finally
+		{
+			System.out.println("finally-block");
+		}
+		
+	}
+}
+o/p:
+	java.lang.ArithmeticException: / by zero
+        at Test.main(Test.java:7)
+	finally-block
+
+Note:
+-----
+A try with finally combination is valid in  java.
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			System.out.println("try-block");
+		}
+		finally
+		{
+			System.out.println("finally-block");
+		}
+		
+	}
+}
+o/p:
+	try-block
+	finally-block
+
+
+Q)What is the difference between final,finally and finalized method ?
+
+final
+------
+final is a modifier which is applicable for variables, methods and classes.
+
+If we declare any variable as final then reassignment of that variable is not possible.
+
+If we declare any method as final then overriding of that method is not possible.
+
+If we declare any class as final then creating child class is not possible.
+
+
+finally
+-------
+It block which contains cleanup code and it will execute irrespective of exception raised or not.
+
+
+finalized method
+----------------
+It is a method called by garbage collector just before destroying an object for cleanup activity.
+
+throw statement
+================
+Sometimes we will create exception object explicitly and handover to JVM manually
+by using throw statement.
+ex:
+	throw new ArithmeticException("don't divide by zero");
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+			System.out.println(10/0);	
+	}
+}
+
+Here exception object is created and hover to JVM by using main method.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+			throw new ArithmeticException("don't divide by zero");
+	}
+}
+
+Here exception object is created and handover to JVM by using throw statement.
+
+
+throws statement
+================
+If any checked exception raised in our program the we must and should handle that exceptions by using try and catch block or by using throws statement.
+
+ex:1
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+			try
+			{
+				Thread.sleep(3000);
+				System.out.println("Welcome to Java");			
+			}
+			catch (InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+	}
+}
+
+ex:2
+----
+class Test  
+{
+	public static void main(String[] args)throws InterruptedException 
+	{
+			Thread.sleep(5000);
+			System.out.println("Welcome to Java");			
+	}
+}
+
+2)Userdefined exceptions
+=======================
+Exceptions which are created by the user based on the application requirements are called customized exceptions.
+ex:
+	NoInterestInJavaException
+	NoPracticeInLabException
+	ClassGettingBoreException
+	TooYoungException
+	TooOldException
+	and etc.
+
+ex:
+---
+import java.util.Scanner;
+
+class TooYoungException extends RuntimeException 
+{
+	TooYoungException(String s)
+	{
+		super(s);
+	}
+}
+class TooOldException extends RuntimeException 
+{
+	TooOldException(String s)
+	{
+		super(s);
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the age :");
+		int age=sc.nextInt();
+
+		if(age<18)
+			throw new TooYoungException("U r not eligible to vote");
+		else
+			throw new TooOldException("U r eligible to vote");
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

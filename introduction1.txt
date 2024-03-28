@@ -1,0 +1,94 @@
+Institute Name  :  IHUB TALENT MANAGEMENT 
+Website		: www.ihubtalent.com 
+Location        : Ameerpet , Hyderabad
+
+Batch No        : IH-JAVA-026
+
+Course Name     : Full Stack Java Development Course + AWS 
+
+Duration        : 4 Months 
+
+Mode            : Online/Offline 
+
+Free 		: Recorded videos 
+
+Whatsapp group  : IH-JAVA-026
+
+Benefits	: Aptitute classes , soft skills classes 
+
+Project 	: Employee Management System (ReactJS + Spring Boot)
+	
+
+		    Full Stack Java Development Course 
+			(Full Stack Developer)
+				|
+		|---------------------------------------|
+	FrontEnd technologies			BackEnd technologies
+	(FrontEnd developer)			(BackEnd developer) 
+
+	> HTML5					> Core Java
+	> CSS3					> Advanced Java
+	> JavaScript 					> JDBC
+	> Bootstrap5					> Servlets
+	> React/ReactJS 				> JSP 
+						> Oracle DB 
+							> SQL
+							> PL/SQL 
+						> Frameworks
+							> Spring Boot
+							> Microservices 
+
+Programming language
+====================
+A language which is used to communicate between user and computer is called programming language.
+
+Programming language acts like a mediator or interface between user and computer.
+
+Diagram: introduction1.1
+
+
+
+Java
+=====
+Object oriented programming language.
+Platform independent programming language.
+Case sensitive programming language.
+Strongly typed checking language.
+High level language.
+Open source programming language.
+
+1995 --> James Gosling --> Sun Micro system --> Oracle Corporation
+Java software --> JDK software 
+C
+===
+Procedure oriented programming language.
+Platform dependent programming language.
+Case sensitive programming language.
+Loosely typed checking language.
+Middle level language (LOW + HIGH)
+
+
+Interview Questions
+==================
+
+Q)What is Java ?
+Java is a object oriented, platform independent ,case sensitive, strongly typed checking, high level , open source programming language developed by James Gosling in the year of 1995.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

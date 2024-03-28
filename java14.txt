@@ -1,0 +1,539 @@
+iii)if else if ladder
+====================
+It will execute the source code based on multiple conditions.
+
+syntax:
+------
+	if(cond1)
+	{
+		- //code to be execute if cond1 is true 
+	}
+	else if(cond2)
+	{
+		- //code to be execute if cond2 is true 	
+	}
+	else if(cond3)
+	{
+		- //code to be execute if cond3 is true 
+	}
+	else
+	{
+		- //code to be execute if all conditions are false.		
+	}
+
+ex:
+----
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the option :");
+		int option=sc.nextInt();
+
+		if(option==100)
+			System.out.println("It is police number");
+		else if(option==103)
+			System.out.println("It is a enquiry number");
+		else if(option==108)
+			System.out.println("It is emergency number");
+		else
+			System.out.println("Invalid option");
+	}
+}
+
+Q)Write a java program to check given alphabet is a uppercase letter,lowercase letter, digit or a special symbol?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the alphabet :");
+		char ch=sc.next().charAt(0);
+
+		if(ch>='A' && ch<='Z')
+			System.out.println("It is uppercase letter");
+		else if(ch>='a' && ch<='z')
+			System.out.println("IT is lowercase letter");
+		else if(ch>='0' && ch<='9')
+			System.out.println("It is Digit");
+		else
+			System.out.println("It is special symbol");
+
+	}
+}
+
+Q)Write a java program to find out given alphabet is a vowel or not?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the alphabet :");
+		char ch=sc.next().charAt(0);
+
+		if(ch=='a')
+			System.out.println("It is a vowel");
+		else if(ch=='e')
+			System.out.println("It is a vowel");
+		else if(ch=='i')
+			System.out.println("It is a vowel");
+		else if(ch=='o')
+			System.out.println("It is a vowel");
+		else if(ch=='u')
+			System.out.println("It is a vowel");
+		else
+			System.out.println("It is not a vowel");
+
+	}
+}
+
+Assignment
+============
+Q)Write a java program to accept 6 marks of a student then find out 
+total ,average and grade?
+
+i) If average is greater then equals to 70 then A grade.
+
+ii) If average is greater then equals to 50 then B grade.
+
+iii) If average is greater then equals to 35 then C grade.
+
+iv) If average is less then 35 then failed.
+
+iv)nested if stmt 
+==================
+If stmt contains another if stmt is called nested if stmt.
+
+syntax:
+------
+	if(condition)
+	{
+		if(condition)
+		{
+			-
+			- //code to be execute
+			-	
+		}
+	}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(5>2)
+		{
+			System.out.println("stmt2");
+			if(true)
+			{
+				System.out.println("stmt3");
+			}
+			System.out.println("stmt4");
+		}
+		System.out.println("stmt5");
+	}
+}
+o/p:
+	stmt1
+	stmt2
+	stmt3
+	stmt4
+	stmt5
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(5>2)
+		{
+			System.out.println("stmt2");
+			if(false)
+			{
+				System.out.println("stmt3");
+			}
+			System.out.println("stmt4");
+		}
+		System.out.println("stmt5");
+	}
+}
+o/p:
+	stmt1
+	stmt2
+	stmt4
+	stmt5
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(5>20)
+		{
+			System.out.println("stmt2");
+			if(true)
+			{
+				System.out.println("stmt3");
+			}
+			System.out.println("stmt4");
+		}
+		System.out.println("stmt5");
+	}
+}
+o/p:
+	stmt1
+	stmt5
+
+Q)Write a java program to find out given number is +ve or -ve by using nested if stmt?
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		if(n!=0)
+		{
+			if(n>0)
+			{
+				System.out.println("It is +ve number");
+				System.exit(0);
+			}
+			System.out.println("It is -ve number");
+		}
+	}
+}
+
+2)Selection statement
+=====================
+
+Switch case
+===========
+It is used to execute the source code based on multiple conditions.
+
+It is similar to if else if ladder.
+
+syntax:
+-----
+	switch(condition)
+	{
+		case value1: //code to be execute
+			     break stmt;
+		case value2: //code to be execute
+			     break stmt;
+		-
+		-
+		default:  //code to be execute if all cases are false.
+		
+	}
+
+ex:
+----
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the option:");
+		int option=sc.nextInt();
+
+		switch(option)
+		{
+			case 100: System.out.println("It is police number");
+					  break;
+			case 103: System.out.println("It is enquiry number");
+					  break;
+			case 108: System.out.println("It is emergency number");
+					  break;
+			default:  System.out.println("Invalid option");
+		}
+	}
+}
+
+Declaration of break statement is optional in switch case.If we won't declare break statement then from where our condition is satisfied from there all cases will be executed that state is called "Fall Through State of Switch case".
+
+ex:
+---
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the option:");
+		int option=sc.nextInt();
+
+		switch(option)
+		{
+			case 100: System.out.println("It is police number");
+					  //break;
+			case 103: System.out.println("It is enquiry number");
+					  //break;
+		case 108: System.out.println("It is emergency number");
+					  //break;
+			default:  System.out.println("Invalid option");
+		}
+	}
+}
+
+Q)Write a java program to find given alphabet is a vowel or consonent?
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the alphabet :");
+		char ch=sc.next().charAt(0);
+
+		switch(ch)
+		{
+			case 'a': System.out.println("It is a vowel"); break;
+			case 'e': System.out.println("It is a vowel"); break;
+			case 'i': System.out.println("It is a vowel"); break;
+			case 'o': System.out.println("It is a vowel"); break;
+			case 'u': System.out.println("It is a vowel"); break;
+			default:  System.out.println("It is a consonent");
+		}
+	}
+}
+
+The allowed datatype for switch case are  byte,short,int, char and String.
+
+ex:
+----
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the String :");
+		String str=sc.next();
+
+		switch(str)
+		{
+			case "one": System.out.println("January"); break;
+			case "two": System.out.println("February"); break;
+			case "three": System.out.println("March"); break;
+			case "four": System.out.println("April"); break;
+			case "five": System.out.println("May"); break;
+			default:  System.out.println("Coming Soon...");
+		}
+	}
+}
+
+3)Iteration statement
+===================
+It is used execute the source code repeatedly.
+
+Iteration statement is possible by using LOOPS.
+
+We have four types of loops.
+
+i) do while loop
+
+ii) while loop
+
+iii) for loop
+
+iv) for each loop 
+
+i) do while loop
+----------------
+It will execute the source code untill our condition is true.
+
+syntax:
+-------
+	do
+	{
+		-
+		- //code to be execute
+		-
+	}while(condition);
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		do
+		{
+			System.out.print(i+" "); //infite 1
+		}
+		while (i<=10);
+	}
+}
+
+In do while loop our code will execute atleast for one time either our condition is true or false.
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=11;
+		do
+		{
+			System.out.print(i+" "); //11
+		}
+		while (i<=10);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+

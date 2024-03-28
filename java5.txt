@@ -1,0 +1,101 @@
+History of Java
+===============
+In 1990, Sun Micro System took one project to develop a software called consumer electronic device which can be controll by a remote like setup box.
+That time project was called Stealth project and later it was renamed to Green project.
+
+James Gosling, Mike Sheradin and Patrick Naughton were there to develop the project and they have met in a place called Aspan/Colarado to start the work with graphic system.James Gosling decided to use C and C++ languages to develop the project.But the problem what they have faced is , C and C++ languages are system dependent.
+
+In 1991 , they have developed a programming language called an OAK. OAK means strength , itself is a coffee seed name and it is a national tree for many contries like Germany, France , USA and etc.
+
+In 1995, they have renamed OAK to Java.Java is a Island of an Indonasia where first coffee of seed was produced and during the development of project they were consuming lot of coffee's.Hence symbol of java is a cup of coffee with saucer.
+
+
+Interview Questions
+===================
+
+Q)What is the difference between JDK, JRE and JVM ?
+
+JDK
+=====
+JDK stands for Java Development Kit.
+
+It is a installable software which consist Java Runtime Environment (JRE), Java Virtual Machine (JVM), Compiler (javac) , Interpreter (java), achiever (.jar), document generator (javadoc) and other tools needed for java application development. 
+
+JRE
+====
+JRE stands for Java Runtime Environment.
+It provides very good environment to run java applications only.
+
+JVM
+===
+JVM stands for Java Virtual Machine.
+JVM is an interpreter which is used to execute our program line by line procedure.
+
+Diagram: java5.1
+
+
+
+Q) Is JVM platform dependent or independent?
+
+	JVM is platform dependent.
+
+Q) In which year java was developed?
+
+	In 1995
+
+Q) Who is the creator of Java ?
+
+	James Gosling 
+
+Q) Java originally known as ___?
+
+	OAK 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

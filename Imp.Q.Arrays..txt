@@ -1,0 +1,758 @@
+CONTROL STATEMENTS PROGRAMS
+===============================
+1Q)Write a java program to find out sum of digits of a given number?
+
+input:
+	123
+
+Output:
+	6
+
+ex:
+---
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //123
+
+		int rem,sum=0;
+
+		while(n>0)
+		{
+			rem=n%10;
+			sum=sum+rem;
+			n=n/10;
+		}
+		System.out.println("sum of digits of a given number is ="+sum);
+
+	}
+}
+
+2Q)Write a java program to find out reverse of a given number?
+
+input:
+	123
+
+output:
+	321
+
+ex:
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //123
+
+		int rem,rev=0;
+
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		System.out.println("Reverse of a given number is ="+rev);
+
+	}
+}
+
+3Q)Write a java program to find out given number is palindrome or not?
+
+input:
+	121
+
+output:
+	It is a palindrome number 
+
+ex:
+----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //121
+
+		int temp=n;
+
+		int rem,rev=0;
+
+		while(n>0)
+		{
+			rem=n%10;
+			rev=rev*10+rem;
+			n=n/10;
+		}
+		if(rev==temp)
+			System.out.println("It is a palindrome number ");
+		else
+			System.out.println("It is not a palindrome number ");
+		
+
+	}
+}
+
+4Q)Write a java program to find out given number is armstrong or not?
+
+Input:
+	153 (1*1*1 + 5*5*5 + 3*3*3) ->(1+125+27) --> (153)
+
+Output:
+	It is armstrong number 
+
+ex:
+----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt(); //153
+
+		int temp=n;
+
+		int rem,sum=0;
+
+		while(n>0)
+		{
+			rem=n%10;
+			sum=sum+rem*rem*rem;
+			n=n/10;
+		}
+		if(sum==temp)
+			System.out.println("It is a armstrong number ");
+		else
+			System.out.println("It is not a armstrong number ");
+		
+
+	}
+}
+
+Recursion programs
+=====================
+1Q)Write a java program to find out factorial of a given number using recursion?
+
+input:
+	n=5 (5*4*3*2*1)
+
+output:
+	120 
+
+ex:
+----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the Number :");
+		int n=sc.nextInt();
+
+		//caller method
+		System.out.println("Factorial of a given number is ="+factorial(n));
+
+	}
+	
+	//callie method
+	public static int factorial(int n)
+	{
+		if(n<0)
+			return -1;
+		if(n==0)
+			return 1;
+
+		return n*factorial(n-1);
+	}
+}
+
+2Q)Write a java program to find out Nth- element of fibonacci series of a given number?
+
+Fibonacci series : 0 1 1 2 3 5
+
+input:
+
+	n= 4
+
+output:
+	Nth-Element is : 2
+
+ex:
+----
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		//caller method
+		System.out.println("N-element of fibonacci series is ="+fibonacci(n));
+
+	}
+	//callie method
+	public static  int fibonacci(int n)
+	{
+		if(n==0 || n==1)
+			return 0;
+
+		if(n==2)
+			return 1;
+
+		return fibonacci(n-1)+fibonacci(n-2);
+	}
+
+}
+	
+
+
+Arrays program
+===============
+1Q)Write a java program to find out least element from given array?
+
+input:
+	arr = 6 3 5 4 7 9 
+
+output:
+	Least element : 3
+
+approach1
+-----------
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,5,4,7,9};
+		
+		//sorting 
+		Arrays.sort(arr); // 3 4 5 6 7 9
+		
+		System.out.println("Least Element is ="+arr[0]);
+		
+	}
+}
+approach2
+------------
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,5,4,7,9};
+		
+		int small=arr[0];	
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]<small)
+			{
+				small=arr[i];
+			}
+		}
+		System.out.println("Least Element is ="+small);
+		
+	}
+}
+
+
+2Q)Write a java program to find out highest element from given array?
+
+input:
+	arr = 6 3 5 4 7 9 
+
+output:
+	Highest element : 9
+
+ex:
+
+approach1
+--------
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,5,4,7,9};
+		
+		Arrays.sort(arr); //3 4 5 6 7 9
+		
+		System.out.println("Highest element ="+arr[arr.length-1]);
+		
+		
+	}
+}
+
+approach2
+----------
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,3,5,4,7,9};
+		
+		int big=arr[0];
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]>big)
+			{
+				big=arr[i];
+			}
+		}
+		System.out.println("Highest element is ="+big);
+	}
+}
+
+
+3Q)Write a java program to display duplicates elements from given array?
+
+input:
+	4 5 6 2 5 6 7 9 1 
+
+output:
+	5 6
+
+ex:
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,5,6,2,5,6,7,9,1};
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					System.out.print(arr[i]+" ");
+				}
+			}
+		}
+		
+	}
+}
+
+4Q)Write a java program to display unique elements from given array?
+
+input:
+	4 5 6 2 5 6 7 9 1 
+
+output:
+	4  2  7  9  1
+
+ex:
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,5,6,2,5,6,7,9,1};
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(cnt==1)
+				System.out.print(arr[i]+" ");
+		}
+		
+	}
+}
+
+5Q)Write a java program to find out most repeating element in given array?
+
+input:
+	4 5 6 1 2 1 7 4 4 9 5 4 3
+
+output:
+	4 
+
+ex:
+----
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,5,6,1,4,2,1,7,4,4,9,5,4,3};
+		
+		int maxCount=0;
+		int ele = 0;
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<arr.length;j++)
+			{
+				if(arr[i]==arr[j])
+				{
+					cnt++;
+				}
+			}
+			if(maxCount<cnt) 
+			{
+				maxCount=cnt;
+				ele=arr[i];
+			}
+		}
+		System.out.println(ele+" repeat for "+maxCount+" times");
+	}
+}
+
+6Q)Write a java program to segregate 0'1 and 1's in given array?
+
+Input:
+	0 1 1 0 0 0 1 1 0 1
+
+output:
+	0 0 0 0 0 1 1 1 1 1
+
+ex:
+----
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={0,1,1,0,0,0,1,1,0,1};
+		
+		Arrays.sort(arr);
+		
+		//display
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+		
+7Q)Write a java program to find out three highest elements?
+
+input:
+	4 6 1 2 3 9 8 5 7
+
+output:
+	9 8 7
+
+ex:
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={4,6,1,2,3,9,8,5,7};
+		
+		Arrays.sort(arr);// 1 2 3 4 5 6 7 8 9
+		
+		System.out.print(arr[arr.length-1]+" ");
+		System.out.print(arr[arr.length-2]+" ");
+		System.out.print(arr[arr.length-3]+" ");
+	}
+}
+
+8Q)Write a java program to find out pair of array elements equals to sum value?
+
+input:
+	arr =  5 4 1 8 9 6 3 
+
+	sum = 10
+
+output:
+	4  6
+        1  9
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,4,1,8,9,6,3};
+		int sum=10;
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]+arr[j]==sum)
+				{
+					System.out.println(arr[i]+" "+arr[j]);
+				}
+			}
+		}
+	}
+}
+
+9Q)write a java program to concatinate two arrays and display them in sorting order?
+
+input:
+	arr1 = 5 7 10 8 1
+	arr2 = 9 4 2  6 3 
+
+output:
+	1 2 3 4 5 6 7 8 9 10
+
+ex:
+
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr1={5,7,10,8,1};
+		int[] arr2={9,4,2,6,3};
+		
+		int size1=arr1.length;
+		int size2=arr2.length;
+		
+		arr1=Arrays.copyOf(arr1, size1+size2);
+		
+		int j=0;
+		for(int i=size1;i<arr1.length;i++)
+		{
+			arr1[i]=arr2[j++];
+		}
+		//sorting
+		Arrays.sort(arr1);
+		
+		//display
+		for(int i:arr1)
+		{
+			System.out.print(i+" ");
+		}
+		
+	}
+}	
+
+10Q)Write a java program to find out leader elements from given array?
+
+input:
+	arr =  33  10 29 18  7  2  14
+
+output:
+	
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={33,10,29,18,7,2,14};
+		
+		int max=arr[arr.length-1];
+		
+		System.out.print(max+" ");
+		
+		for(int i=arr.length-2;i>=0;i--)
+		{
+			if(arr[i]>max)
+			{
+				max=arr[i];
+				System.out.print(max+" ");
+			}
+		}
+	}
+}
+
+
+11Q)Write a java program to delete array element from given index?
+
+input:
+	arr =  5 7 2 3 1 9 10
+
+	index : 5
+
+output:
+	5 7 2 3 1 10
+	
+ex:
+----
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,7,2,3,1,9,10};
+		int index=5;
+		
+		int[] resArr=Arrays.copyOf(arr,arr.length-1);
+		
+		int j=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(i!=index)
+			{
+				resArr[j++]=arr[i];
+			}
+		}
+		//display
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+12Q)Write a java program to delete first occurance of an array element from given element?
+
+input:
+	arr =  6 5 7 2 3 1 5 9 10 4 5 
+
+	element = 5;
+
+output:
+	6 7 2 3 1 5 9 10 4 5 
+
+ex:
+----
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={6,5,7,2,3,1,5,9,10,4,5};
+		
+		int element=5;
+		
+		int[] resArr=Arrays.copyOf(arr,arr.length-1);
+		
+		int j=0,cnt=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if((arr[i]==element) && cnt==0)
+			{
+				cnt++;
+				continue;
+			}
+			resArr[j++]=arr[i];
+			
+		}
+		
+		//display
+		for(int i:resArr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+13Q)Write a java program to insert one element based on given location in a given array? 
+
+input:
+	arr =  5 3 7 4 9 1 6
+
+	loc =  3
+
+	element = 100
+
+output:
+	5 3 7 100 4 9 1 6
+
+ex:
+import java.util.Arrays;
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={5,3,7,4,9,1,6};
+		int loc =  3;
+		int element = 100;
+		
+		arr=Arrays.copyOf(arr,arr.length+1);
+	
+		for(int i=arr.length-1;i>=loc;i--)
+		{
+			arr[i]=arr[i-1];
+		}
+		
+		arr[loc]=element;
+		
+		for(int i:arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+14Q)Write a java program to accept two positive number and display prime numbers in between them?
+
+Input:
+	10    20
+
+output:
+	11  13  17  19
+
+ex:
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int n1=10,n2=20;
+		int i,j;
+		
+		for(i=n1;i<=n2;i++)
+		{
+			for(j=2;j<i;j++)
+			{
+				if(i%j==0)
+				{
+					break;
+				}
+			}
+			if(i==j)
+				System.out.print(i+" ");
+		}
+	}
+}
+
+
+15Q)Write a java program to find out missing element from given array?
+
+input:
+	arr = 3  5  1  4  
+
+output:
+	missing element = 2
+
+ex:
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int[] arr={3,5,1,4};
+		
+		int sum_of_elements=arr.length+1;
+		
+		int sum=((sum_of_elements)*(sum_of_elements+1))/2;
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			sum=sum-arr[i];
+		}
+		System.out.println("Missing element is ="+sum);
+	}
+}

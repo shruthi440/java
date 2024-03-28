@@ -1,0 +1,153 @@
+1Q)What is Java?
+
+Java is a object oriented, platform independent, case sensitive, strongly typed checking , 
+high level , open source programming language developed by James Gosling in the 
+year of 1995.
+
+2Q)Features of Java?
+
+1)Simple
+2)Object oriented
+3)Platform independent
+4)Portable
+5)Architecture Neutral
+6)Highly secured
+7)Robust
+8)Multithreaded
+9)Distributed
+10)Dynamic
+
+3Q)Differences betweend JDK , JRE and JVM ? 
+
+JDK
+ JDK stands for Java Development Kit.
+ It is a installable software which contains compiler (javac) , interpreter (java), 
+ Java virtual machine (JVM), archiever (.jar) , document generator (javadoc) and 
+ other tools needed for java application development.
+JRE
+ JRE stands for Java Runtime Environment.
+ It provides very good environment to run java applications only.
+JVM
+ JVM stands for Java Virtual Machine.
+ It is an interpreter which is used to execute our program line by line procedure
+
+
+4Q)Types of classloaders in java?
+
+We have three types of predefined classloaders.
+1)Bootstrap classloader (loads rt.jar file)
+2)Extension classloader (loads all the jar files from ext folder)
+3)System/Application classloader(it loads .class file from classpath
+
+5Q)Is it possible to execute java program without main methods?
+
+Till 1.6 version it is possible to execute java program without main method
+using static block. But from 1.7 version onwards it is not possible to execute
+java program without main method.
+ex: class A
+{
+static
+{
+System.out.println("Hello World");
+System.exit(0);
+}
+}
+
+6Q)What is typecasting?
+
+Process of converting from one datatype to another datatype is called typecasting.
+Typecasting can be performed in two ways.
+i)Implicit typecasting
+ If we want to store small value into a bigger variable then we need to use
+implicit typecasting. 
+ A compiler is responsible to perform implicit typecasting.
+ Implicit typecasting is also known as Widening/upcasting.
+ii)Explicit typecasting
+ If we want to store bigger value into a smaller variable then we need to use 
+ explicit typecasting. 
+ A programmer is responsible to perform explicit typecasting.
+ Explicit typecasting is also known as Norrowing/Downcasting
+
+7Q)What is static import in java?
+
+Using static import we can access static members directly.
+Ex: import static java.lang.System.*;
+class Test
+{
+public static void main(String[] args)
+{
+out.println("Hello World");
+}
+}
+
+8Q)Which is a default package in java?
+ java.lang package
+
+9Q) What is JIT compiler
+ IT is a part of a JVM which is used to increase the execution speed of our program.
+
+10Q)How many memories are there in java?
+We have five memories in java.
+ 1) Method area
+ 2) Heap
+ 3) JAva Stack 
+ 4) PC Register 
+ 5) Native method stack
+
+11Q) What is native method in java?
+ A Method which is developed by using some other language is called native method.
+
+12Q) What is Garbage Collector ?
+ Garbage collector is responsible to destroy unused or useless objects in java.
+ There are two ways to call garbage collector in java.
+ 1) System.gc()
+ 2) Runtime.getRuntime().gc()
+
+13Q) What is identifier?
+ A name in java is called identifier.
+ It can be class name, variable name, method name and label name.
+
+14Q) What .class file contains ?
+ A .class file contains byte code instructions.
+
+15Q) Is java support access specifiers?
+ Java does not support access specifiers.
+ Java support access modifiers.
+ 1) default
+ 2) public 
+ 3) private 
+ 4) protected 
+
+16Q) What is program?
+ 
+ Program is a collection of instructions (or) Program is a set of instructions.
+
+17Q)Types of variables in java?
+ we have three types of variables in java.
+ 1) Instance variable
+ 2) Static variable 
+ 3) Local variable 
+
+18Q) Types of blocks in java?
+ We have three types of blocks in java.
+ 1) Instance block
+ 2) Static block
+ 3) Local block 
+
+19Q)Explain main method ?
+
+public: 
+JVM wants to call this method from any where that's why main method is public.
+static:
+JVM wants to call this method without using object reference.
+void:
+Main method does not return anything to JVM.
+main:
+It is an identifier given to a main method.
+String[] args:
+It is a command line argument.
+ 
+20Q)Is java purely object oriented or not?
+ No, java will not consider as purely object oriented becauseit does not support many 
+OOPS concepts like multiple inheritance, operator overloading and more ever we 
+depends upon primitive datatypes which are non-objects.

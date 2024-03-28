@@ -1,0 +1,600 @@
+Pyramids
+==========
+1)
+      1
+    1 2 1 
+  1 2 3 2 1 
+1 2 3 4 3 2 1
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space 
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+
+2)
+1 2 3 4 3 2 1
+  1 2 3 2 1 
+    1 2 1 
+      1
+
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//space 
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+
+			//right side elements
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+
+			//new line
+			System.out.println("");
+		}
+	}
+}
+
+
+3)
+      * 
+    * * *  
+  * * * * * 
+* * * * * * *
+  * * * * *
+    * * * 
+      * 
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//ascending 
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//space 
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+
+			//right side elements 
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+			//new line 
+			System.out.println("");
+		}
+
+		//descending 
+		//rows
+		for(int i=3;i>=1;i--)
+		{
+			//space 
+			for(int j=4;j>i;j--)
+			{
+				System.out.print("  ");
+			}
+
+			//left side elements
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print("* ");
+			}
+
+			//right side elements 
+			for(int j=i-1;j>=1;j--)
+			{
+				System.out.print("* ");
+			}
+			//new line 
+			System.out.println("");
+		}
+		
+	}
+}
+
+4)
+1             1
+1 2         2 1 
+1 2 3     3 2 1  
+1 2 3 4 4 3 2 1 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int rows=4;
+
+		//rows
+		for(int i=1;i<=rows;i++)
+		{
+			//left side elements 
+			for(int j=1;j<=i;j++)
+			{
+				System.out.print(j+" ");
+			}
+
+			//space
+			for(int j=1;j<=(rows-i)*2;j++)
+			{
+				System.out.print("  ");
+			}
+			
+			//right side elements
+			for(int j=i;j>=1;j--)
+			{
+				System.out.print(j+" ");
+			}
+			//new line 
+			System.out.println("");
+
+		}
+		
+	}
+}
+
+Assignment
+===========
+5)
+	*
+	*
+    * * * * *
+	*
+	*
+	
+ex:
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=5;i++)
+		{
+			//columns
+			for(int j=1;j<=5;j++)
+			{
+				if(i==3 || j==3)
+					System.out.print("* ");
+				else
+					System.out.print("  ");
+			}
+			//new line
+			System.out.println("");
+		}
+		
+	}
+}
+
+4)Jump Statement
+=================
+It is used to jump from one section of code to another section.
+
+We have two types of jump statements.
+
+i) break 
+
+ii) continue 
+
+i) break 
+----------
+It is used to break the execution of loops and switch case.
+
+For conditional statements we can use if condition.
+
+syntax:
+	break;
+
+ex:1
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		break;
+		System.out.println("stmt2");
+	}
+}
+
+o/p:
+	C.T.E break outside switch or loop
+
+
+ex:2
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!false)
+		{
+			break;
+		}
+		System.out.println("stmt2");
+	}
+}
+
+o/p:
+	C.T.E break outside switch or loop
+
+
+
+ex:3
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				break;
+			}
+			System.out.print(i+" ");//1 2 3  4
+		}
+	}
+}
+
+ii) continue
+-------------
+It is used to continue the execution of loops.
+
+syntax:
+-----
+	continue;
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		continue;
+		System.out.println("stmt2");
+	}
+}
+o/p: 
+	C.T.E continue outside of loop
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!false)
+		{
+			continue;
+		}
+		System.out.println("stmt2");
+	}
+}
+o/p: 
+	C.T.E continue outside of loop
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i==5)
+			{
+				continue;
+			}
+			System.out.print(i+" ");//1 2 3 4 6 7 8 9 10
+		}
+	}
+}
+
+
+Arrays
+=======
+Array is a collection of homogeneous data elements.
+
+The main objective of arrays are
+
+1)We can represent multiple elements using single variable name.
+  ex:
+	int[] arr={10,20,30};
+
+2)Performance point of view arrays are recommanded to use.
+ 
+The main disadvantages of arrays are 
+
+1)Arrays are fixed in size.Once if we create an array there is no chance of 
+  increasing or decreasing the size of an array.
+
+2)To use array concept in advanced we should know what is the size of an array
+  which is always not possible.
+
+In java, arrays are categories into three types.
+
+1)Single Dimensional Array 
+
+2)Double Dimensional Array / Two Dimensional Array 
+
+3)Multi Dimensional Array / Three Dimensional Array 
+
+Array Declaration
+----------------
+At the time of array declaration we should not specify array size.
+ex:
+				Arrays
+          |-----------------------|-----------------------------|
+Single Dimensional Array  Double Dimensional Array    Multi Dimensional Array
+
+int[] arr;		 	int[][] arr;		int[][][] arr;	
+int []arr;			int  [][]arr;		int [][][]arr;
+int arr[];			int  arr[][];		int arr[][][];
+				int[]  []arr;		int[][] []arr;
+				int[]  arr[];		int[][] arr[];
+				int  []arr[];		int[] [][]arr;
+							int[]  arr[][];
+							int[]  []arr[];
+							int   [][]arr[];
+							int   []arr[][];
+				
+Array Construction
+-------------------
+In java, every array consider as an object.Hence we will use new operator to create an array.
+ex:
+	int[] arr=new int[3];
+
+Diagram: java19.1
+
+Rules to constructor an array
+---------------------------
+
+Rule1:
+------
+	At the time of array creation compulsary we need to specify array size.
+	ex:
+		int[] arr=new int[3]; //valid 
+		int[] arr=new int[]; //C.T.E array dimension missing 
+
+Rule2:
+-----
+	It is legal to have an array size with zero.
+	ex:
+		int[] arr=new int[0];
+		System.out.println(arr.length);//0
+
+Rule3:
+------
+	We can't take negative number as an array size otherwise we will 
+	get runtime exception called NegativeArraySizeException.
+	ex:
+		int[] arr=new int[-3];
+
+Rule4:
+-----
+	The allowed datatype for an array size are byte,short,int and char.
+	If we take other datatypes then we will get compile time error.
+	ex:
+		int[] arr=new int['a'];
+
+		byte b=10;
+		int[] arr=new int[b];
+
+		int[] arr=new int[10.5f];
+
+Rule5:
+-------
+	The maximum length we can't take for an array size is maximum 
+	length of integer.
+	ex:
+		int[] arr=new int[2147483647];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

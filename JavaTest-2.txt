@@ -1,0 +1,65 @@
+1)Features of Java?
+
+2)Differences betweend JDK , JRE and JVM ?
+
+3)Types of classloaders in java?
+
+4)Difference betweend break and continue?
+
+5) What is JIT compiler?
+
+6) What is Garbage Collector ?
+
+7)what is static keyword in java?
+
+8)what is static block write a one example?
+
+9) Is java support access specifiers ?
+
+10)Explain main method ?
+
+PROGROMS:-
+
+1Q)Write a java program to display array elements in sorting order?
+
+input:
+	2 7 1 9 6 5 
+
+output:
+	1 2 5 6 7 9
+
+2Q)Write a java program to display highest element from given array?
+
+input:
+	5 8 1 2 7  
+
+output:
+	8
+
+3Q)Write a java program to display reverse of a given number in words?
+
+input:
+	123
+
+output:
+	ThreeTwoOne
+
+4Q)Write a java program to display prime numbers from 1 to 100?
+
+output:
+2, 3, 5, 7, 11, 13, 17, 19, 23, 
+29, 31, 37, 41, 43, 47, 53, 59, 
+61, 67, 71, 73, 79, 83, 89, 97.
+
+
+5Q)write a java program to display even numbers from 1 to 25 and odd numbers from 25 to 60 and prime numbers from 60 to 100?
+
+output:- even numbers:- 2,4,6,8,10,12,14,16,18,20,22,24.
+
+         Odd numbers:- 25,27,29,31,33,35,37,39,41,43,45,47,49,51,53,55,57,59.
+
+         Prime numbers:- 61, 67, 71, 73, 79, 83, 89, 97.
+     
+
+
+

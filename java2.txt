@@ -1,0 +1,159 @@
+Q)What is the difference between C++ and Java?
+
+C++					Java
+-----					------
+It is developed by Bjarne Stroustrup.	It is developed by James Gosling.
+
+It is a partial object oriented 	It is a purely object oriented 
+programming language.			programming language.
+
+It is a platform dependent.		It is platform independent.
+
+Memory allocation and deallocation	Memory allocation and deallocation
+will taken care by a programmer.	will taken care by a JVM.
+
+It supports multiple inheritance.	It does not support multiple
+					inheritance.
+
+It supports pointers.			It does not support pointers.
+
+It supports preprocessor directory(#).	It does not support preprocessor 
+					directory(#).
+
+It contains three access specifiers 	It contains four access modifiers
+i.e public,private and protected.	i.e default,public,private and 
+					protected.
+
+It contains three types of loops i.e	It contains four types of loops i.e
+do while loop, while loop and for loop.	do while loop, while loop, for loop
+					and for each loop.
+
+
+Q)What is the difference between .Net and Java?
+
+.Net					Java
+-----------				--------
+It is a product of Microsoft.		It is a product of Oracle Corporation.
+
+It is platform dependent.		It is a platform independent.
+
+It contains less security.		It contains high security.
+
+To develop medium scale projects we 	To develop major scale projects we 	
+need to use .net.			need to use java.
+
+It contains small set of frameworks.	It contains large set of frameworks.
+ex:					ex:
+ASP.net (Actice Server Pages)			Hibernate
+ASP.net MVC (Model View Controller)		Spring Framework
+						Spring Boot
+						Microservices
+						Struts
+						spring cloud 
+						spring security 
+						and etc.
+
+				
+Q)What are the features of Java?
+
+We have following important features in java.
+
+1) Simple 
+
+2) Object oriented 
+
+3) Platform independent 
+
+4) Portable 
+
+5) Highly secured 
+
+6) Architecture Neutral 
+
+7) Robust 
+
+8) Multithreaded 
+
+9) Dynamic 
+
+10) Distributed 
+
+and etc.
+
+
+Q)Who is the responsible to destroy the objects in java?
+
+ Garbage collector 
+
+
+Q)In how many ways we can call garbage collector in java?
+
+There are two ways to call garbage collector in java.
+
+1) System.gc()
+2) Runtime.getRuntime().gc() 
+
+
+Q) What is package?
+Package is a collection of classes and interfaces.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+

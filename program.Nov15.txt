@@ -1,0 +1,42 @@
+1Q)Write a java program to find out duplicate elements from given array?
+
+input:
+	4 6 1 2 9 1 4 3 7 9 
+
+output:
+	4 1 9
+
+2Q)Write a java program to display unique elements from given array?
+
+input:
+	4 6 1 2 9 1 4 3 7 9 
+
+output:
+	6 2 3 7 
+
+
+3Q)Write a java program to display most repeating element from given array?
+
+input:
+	4 5 1 2 3 1 7 7 9 7 3 7 5 5 
+
+output:
+	7 is repeating for 4 times 
+
+
+4Q)Write a java program to display prime elements from given array?
+
+input:
+	5 9 13 17 21 23  6  4 
+
+output:
+	5 13 17 23  
+5Q)Write a java program to perform sum of two array elements?
+
+input:
+	1 7 2 5 3
+
+	9 4 8 6 10
+
+output:
+	10  11  10  11  13

@@ -1,0 +1,567 @@
+Enum
+=====
+Enum is a group of named constants.
+
+Enum concept introduced in 1.5v.
+
+Using enum we can create our own datatype called enumerated datatype.
+
+When compare to old language enum , java enum is more powerful.
+
+syntax:
+	enum  type_name
+	{
+		val1,val2,....,valN	
+	}
+ex:
+---	
+	enum Months
+	{
+		JAN,FEB,MAR
+	}
+	
+Internal implementation of enum
+---------------------------------
+Every enum internally consider as class concept and extended with java.lang.Enum class.
+
+Every enum constant is a reference variable of enum type.
+
+
+enum Months			public final class Months extends java.lang.Enum
+{				{
+	JAN,FEB,MAR  ==>		public static final Months JAN=new Months();
+}					public static final Months FEB=new Months();
+					public static final Months MAR=new Months();
+				}
+
+Declaration and Usage of enum
+------------------------------
+enum Months
+{
+		JAN,FEB,MAR
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Months m=Months.JAN;
+		System.out.println(m);
+	}
+}
+
+Enum vs Switch case
+----------------------
+From java 1.5v onwards it is possible pass enum to the switch case.
+
+Diagram : java28.1
+
+ex:
+---
+enum Months
+{
+		JAN,FEB,MAR
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Months m=Months.FEB;
+		switch(m)
+		{
+			case JAN: System.out.println("January"); break;
+			case FEB: System.out.println("February"); break;
+			case MAR: System.out.println("March"); break;
+		}
+	}
+}
+
+Enum vs inheritance
+--------------------
+Every enum internally consider as final so we can't create child enum.
+
+Every enum extended with java.lang.Enum class so it is not possible to extend some other class.
+
+But enum can implements interface.So we conclude by say this inheritance concept is not 
+applicable for enum.
+
+ex:
+
+	enum A 
+	{
+	}
+	enum B extends A 
+	{
+	}	 
+	o/p: invalid 
+
+ex:
+---
+	class A 
+	{
+	}
+	enum B extends A 
+	{	
+	}	
+	o/p: invalid 
+ex:
+---
+	interface A 
+	{
+	}
+	enum B implements A 
+	{
+	}
+	o/p: valid 
+
+java.lang.Enum
+-------------------
+The power to enum will be inherited from java.lang.Enum class.
+
+It contains following two methods.
+
+1) values()
+----------
+	It will return group of constants from enum.
+
+2) ordinal() 
+------------
+	It will return ordinal number.
+
+ex:
+---
+enum Week
+{
+		MON,TUE,WED,THU,FRI,SAT,SUN
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Week[] w=Week.values();
+
+		//for each loop
+		for(Week day:w)
+		{
+			System.out.println(day+" ------------- "+day.ordinal());
+		}
+	}
+}
+
+When compare to old language enum java enum is more powerful because in addition to 
+constants , we can declare variables, methods and constructors.
+
+ex:
+---
+enum Drinks
+{
+		COLA,PEPSI,SPRITE;
+
+		//constructor
+		Drinks()
+		{
+			System.out.println("constructor");
+		}
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Drinks d=Drinks.COLA;
+	}
+}
+o/p:	
+	constructor
+	constructor
+	constructor 
+
+ex:
+---
+enum Drinks
+{
+		COLA,PEPSI,SPRITE;
+
+		//static variable 
+		static int i=10;
+
+		public static void main(String[] args) 
+		{
+			System.out.println(i); //10
+		}
+}
+o/p:
+	javac Drinks.java
+	java  Drinks
+
+Wrapper classes
+===============
+The main objective of wrapper classes are
+
+1) To wrap primitive type to wrapper object and vice versa.
+
+2) To defined several utility methods.
+
+primitive type				wrapper class
+---------------				--------------
+byte					Byte
+short					Short
+int					Integer
+long					Long
+float					Float
+double					Double
+boolean					Boolean
+char 					Character 
+
+constructor
+-----------
+Every wrapper class contains following two constructors.One will take corresponding 
+primitive as an argument and another will take corresponding String as an argument.
+ex:
+
+Wrapper class				constructor
+---------------				------------
+Byte					byte or String 
+Short					short or String 
+Integer					int or String 
+Long					long or String
+Float					float or String
+Double 					double or String
+Boolean					boolean or String
+Character				char 
+
+ex:1
+----
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i1=new Integer(10);	
+
+		Integer i2=new Integer("20");
+
+		System.out.println(i1+" "+i2);
+	}
+}
+
+ex:2
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Boolean b1=new Boolean(true);
+
+		Boolean b2=new Boolean("false");
+
+		System.out.println(b1+" "+b2);
+	}
+}
+
+ex:3
+-----
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Character c=new Character('a');
+
+		System.out.println(c);
+	}
+}
+
+Utility methods
+------------------
+1) valueOf()
+-----------
+	It is similar to constructor.
+	It converts primitive type to wrapper object.
+	ex:
+		class Test 
+		{
+			public static void main(String[] args)
+			{
+				Integer i1=Integer.valueOf(10);
+
+				Long l1=Long.valueOf(10001);
+
+				Float f1=Float.valueOf(10.5f);
+
+				System.out.println(i1+" "+l1+" "+f1);
+			}
+		}
+
+2) xxxValue()
+---------------
+	It is used to convert wrapper object to primitive type.
+	ex:
+		class Test 
+		{
+			public static void main(String[] args)
+			{
+				Integer i=new Integer(10);
+
+				byte b=i.byteValue();
+
+				short s=i.shortValue();
+
+				System.out.println(b+" "+s);
+			}
+		}
+
+3) parseXxx() 
+-------------
+	It is used to convert string to primitive type .
+	ex:
+		class Test 
+		{
+			public static void main(String[] args)
+			{
+				String str="35";
+
+				int i=Integer.parseInt(str);
+				System.out.println(i);
+
+				long l=Long.parseLong(str);
+				System.out.println(l);
+
+				float f=Float.parseFloat(str);
+				System.out.println(f);
+			}
+		}
+		
+
+4) toString() 
+-------------
+	It is used to convert wrapper object to string type.
+	ex:
+		class Test 
+		{
+			public static void main(String[] args)
+			{
+				Integer i=new Integer(10);
+
+				String s=i.toString();
+
+				System.out.println(s);//10
+			}
+		}	
+		
+Interview Question
+===================
+
+Q)Write a query to display sum of two binary numbers?
+
+input:
+	1010
+	0101
+output:
+	1111
+
+ex:
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter the first binary number :");
+		String binary1=sc.next();
+		
+		System.out.println("Enter the second binary number :");
+		String binary2=sc.next();
+
+		//convert binary to decimal
+		int a=Integer.parseInt(binary1,2);
+		int b=Integer.parseInt(binary2,2);
+
+		//sum
+		int c=a+b;
+
+		//convert decimal to binary
+		String result=Integer.toBinaryString(c);
+		System.out.println(result);
+	}
+}
+
+Types of objects in Java
+=========================
+We have two types of objects in java.
+
+1)Immutable object 
+--------------------
+After object creation if we perform any changes then for every change a new object will be created such type of object is called immutable object.
+ex:
+	String and Wrapper classes
+
+2)Mutable object 
+---------------
+After object creation if we perform any changes then all the changes will be reflected 
+in a single object such type of object is called mutable object.
+ex:
+	StringBuffer and StringBuilder
+
+
+String
+=======
+A String is a collection of characters which is enclosed in a double quotations.
+
+case1:
+------
+Once if we create String object we can't perform any changes.If we perform any changes then
+for every change a new object will be created such behaviour is called immutability of an 
+object.
+
+Diagram: java28.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

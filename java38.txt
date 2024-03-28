@@ -1,0 +1,571 @@
+Various ways to prevent a thread from execution 
+===============================================
+There are three ways to prevent(stop) a thread from execution.
+
+1)yield()
+
+2)join()
+
+3)sleep()
+
+1)yield()
+----------
+It will pause current execution thread and gives the change to others having same priority.
+
+If multiple threads having same priority then we can't expect any execution order.
+
+If there is no waiting threads or low priority threads then same thread will continue it's execution.
+
+The thread yielded when it will get a chance of execution is depends upon mercy of thread schedular.
+
+ex:
+	publi static native void yield();
+
+Diagram: java38.1
+
+ex:
+---
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			Thread.currentThread().yield();
+			System.out.println("child-thread");
+		}
+	}
+}
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		MyThread t=new MyThread();
+		t.start();
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("parent-thread");
+		}
+	}
+}
+
+2)join()
+----------
+If a thread wants to waiting untill the completion of some other thread then we need to use join() method.
+
+A join() method will throw one checked exception called InterruptedException so we must and should handle that exception by using try and catch block or by using throws statement.
+
+ex:
+	public final void join()throws InterruptedException 
+	public final void join(long ms)throws InterruptedException 
+	public final void join(long ms,int ns)throws InterruptedException 
+
+Diagram: java38.2
+
+ex:
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("child-thread");
+		}
+	}
+}
+class Test  
+{
+	public static void main(String[] args)throws InterruptedException
+	{
+		MyThread t=new MyThread();
+		t.start();
+		t.join();
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("parent-thread");
+		}
+	}
+}
+
+3)sleep()
+---------
+If thread don't want to perform any operation on perticular amount of time then we need to use sleep().
+
+A sleep() method will throw one checked exception called InterruptedException so we must and should handle that exception by using try and catch block or by using throws statement.
+
+ex:
+	public static native void sleep()throws InterruptedException 
+	public static native void sleep(long ms)throws InterruptedException 
+	public static native void sleep(long ms,int ns)throws InterruptedException 
+
+Diagram: java38.3
+
+ex:
+---
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("child-thread");
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch (InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+		}
+	}
+}
+class Test  
+{
+	public static void main(String[] args)
+	{
+		MyThread t=new MyThread();
+		t.start();
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("parent-thread");
+		}
+	}
+}
+
+Deamon Thread
+==============
+It is a service provider thread which provides services to user threads.
+
+Life of daemon thread is depends upon user threads because when user threads died then deamon thread will terminate automatically.
+
+There are many daemon thread are running internaly like Garbage collector, Finalizer and etc.
+
+To start a daemon thread we need to use setDaemon(true) method.
+
+To check thread is a daemon or not we need to use isDaemon() method.
+
+ex:
+---
+class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println(Thread.currentThread().isDaemon());
+			System.out.println("child-thread");
+		}
+	}
+}
+class Test  
+{
+	public static void main(String[] args)
+	{
+		MyThread t=new MyThread();
+		t.setDaemon(true);
+		t.start();
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println("parent-thread");
+		}
+	}
+}
+
+Problem without synchronization
+===============================
+If there is no synchronization then we will face following problems.
+
+1) Data inconsistency
+
+2) Thread interference 
+
+ex:
+---
+class Table 
+{
+	void printTable(int n)
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println(n*i);
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch (InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+		}
+	}
+}
+class MyThread1 extends Thread 
+{
+	Table t;
+	MyThread1(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+class MyThread2 extends Thread 
+{
+	Table t;
+	MyThread2(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(10);
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Table obj=new Table();
+		MyThread1 t1=new MyThread1(obj);
+		MyThread2 t2=new MyThread2(obj);
+		t1.start();
+		t2.start();
+	}
+}
+
+
+synchronization
+=============
+• Synchronized is the keyword applicable for methods and blocks but not for classes and 
+  variables. 
+
+• If a method or block declared as the synchronized then at a time only one Thread is allow 
+  to execute that method or block on the given object. 
+
+• The main advantage of synchronized keyword is we can resolve date inconsistency problems. 
+
+• But the main disadvantage of synchronized keyword is it increases waiting time of the 
+  Thread and effects performance of the system. 
+
+• Hence if there is no specific requirement then never recommended to use synchronized 
+  keyword. 
+
+• Internally synchronization concept is implemented by using lock concept. 
+
+• Every object in java has a unique lock. Whenever we are using synchronized keyword then 
+  only lock concept will come into the picture. 
+
+• If a Thread wants to execute any synchronized method on the given object 1st it has to get 
+  the lock of that object. Once a Thread got the lock of that object then it’s allow to execute 
+  any synchronized method on that object. If the synchronized method execution completes 
+  then automatically Thread releases lock. 
+
+• While a Thread executing any synchronized method the remaining Threads are not allowed 
+  execute any synchronized method on that object simultaneously. But remaining Threads 
+  are allowed to execute any non-synchronized method simultaneously. [lock concept is 
+  implemented based on object but not based on method]. 
+
+ex:
+class Table 
+{
+	synchronized void printTable(int n)
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println(n*i);
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch (InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+		}
+	}
+}
+class MyThread1 extends Thread 
+{
+	Table  t;
+	MyThread1(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+class MyThread2 extends Thread 
+{
+	Table  t;
+	MyThread2(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(10);
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Table obj=new Table();
+		MyThread1 t1=new MyThread1(obj);
+		MyThread2 t2=new MyThread2(obj);
+		t1.start();
+		t2.start();
+	}
+}
+
+Synchronized block:
+====================
+• If very few lines of the code required synchronization then it’s never recommended to 
+declare entire method as synchronized we have to enclose those few lines of the code 
+with in synchronized block. 
+• The main advantage of synchronized block over synchronized method is it reduces 
+waiting time of Thread and improves performance of the system. 
+
+ex:
+class Table 
+{
+	void printTable(int n)
+	{
+		synchronized(this)
+		{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println(n*i);
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch (InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+		}
+		}//block
+	}
+}
+class MyThread1 extends Thread 
+{
+	Table  t;
+	MyThread1(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+class MyThread2 extends Thread 
+{
+	Table  t;
+	MyThread2(Table t)
+	{
+		this.t=t;
+	}
+	public void run()
+	{
+		t.printTable(10);
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Table obj=new Table();
+		MyThread1 t1=new MyThread1(obj);
+		MyThread2 t2=new MyThread2(obj);
+		t1.start();
+		t2.start();
+	}
+}
+
+
+static synchronization
+=======================
+Every class in java has a unique lock. If a Thread wants to execute a static synchronized 
+method then it required class level lock.
+
+ex:
+class Table 
+{
+	static synchronized void printTable(int n)
+	{
+
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println(n*i);
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch (InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+		}
+	}
+}
+class MyThread1 extends Thread 
+{
+	public void run()
+	{
+		Table.printTable(5);
+	}
+}
+class MyThread2 extends Thread 
+{
+	public void run()
+	{
+		Table.printTable(10);
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		MyThread1 t1=new MyThread1();
+		MyThread2 t2=new MyThread2();
+		t1.start();
+		t2.start();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

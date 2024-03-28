@@ -1,0 +1,339 @@
+Java
+=====
+Version		:	Java 8
+
+JDK		:	1.8
+
+Open source	:	Open source
+
+Creator		:	James Gosling 
+
+Vendor		:	Oracle Corporation 
+
+website		:	www.oracle.com/in/java/	
+
+Download link   :
+
+https://drive.google.com/file/d/16fr2McV_Bex0NYlOdcVfC4k2gwUUNqzq/view?usp=share_link
+
+
+Steps to setup Java Environmental variables
+===========================================
+step1:
+------
+	Make sure JDK 1.8 installed successfully.
+
+step2:
+------
+	Copy "lib" directory from java_home folder.
+	ex:
+		C:\Program Files\Java\jdk1.8.0_181\lib
+
+step3:
+-----
+	Paste java lib directory in environmental variables.
+	ex:
+		Right click to My PC --> properties --> 
+		Advanced System settings --> Environmental variables -->
+			
+		user varaibles  --> click to new button -->
+
+		variable Name : CLASSPATH	
+		variable value : C:\Program Files\Java\jdk1.8.0_181\lib;
+		--> ok.
+		
+		system variables --> click to new button --> 
+
+		variable Name : path  
+		variable value: C:\Program Files\Java\jdk1.8.0_181\bin;
+
+		--> ok ---> ok ---> ok.
+
+step4:
+----
+	Check the environmental setup done perfectly or not.
+	ex:
+		cmd> javap 
+		cmd> java  -version 
+
+Steps to develop first application in java
+============================================
+step1:
+-----
+	Make sure JDK 1.8 installed successfully.
+
+step2:
+-----
+	Make sure environmental setup done perfectly.
+
+step3:
+-----
+	Create a "javaprog" folder inside 'E' drive.
+
+
+step4:
+------
+	Open a notepad and develop Hello World program.
+	ex:
+	class  Test
+	{
+		public static void main(String[] args)
+		{
+			System.out.println("Hello World");
+		}
+	}
+
+step5:
+-----
+	Save above program with same name as class name inside "javaprog"
+	folder.
+
+step6:
+-----
+	Open the command prompt from "javaprog" location.
+
+step7:
+------
+	Compile the program by using below command.
+	ex:
+		javaprog> javac   Test.java
+					|
+					filename 
+
+step8:
+------
+	Run the program by using below command.
+	ex:
+		javaprog> java    Test 
+				   |
+				classname 
+
+
+Internal Architecture of JVM
+============================
+Diagram: java6.1
+
+Java program contains java code instructions.Once if we compile ,java code instructions convert to byte code instructions in .class file.
+
+JVM will invoke one module called classloader/sub system to load all the bytes code instructions from .class file.The work of classloader is to check these byte code instructions are proper or not.If they are not proper then it will refuse the execution.If they are proper then it will allocate memory.
+
+We have five types of memories in java.
+
+1)Method Area 
+-----------
+It contains code of a class, code of a variable and code of a method.
+
+2)Heap 
+-------
+Our object creations will store in heap area.
+
+Note:
+-----
+Whenever JVM loads byte code instructions from .class file then it will create method area and heap area automatically.
+
+
+3)Java Stack 
+-------------
+Java methods will store in method area but to execute those methods we required some memory.That memory will be allocated in java stack.
+
+4)PC Register 
+------------
+It is a program counter register which is used to track address of an instructions.
+
+5)Native Method Stack 
+-------------------
+Java methods will execute in method area.
+Similarly native methods will execute in native method stack.
+But native methods we can't execute directly.We need to take the support a program called Native method interface.
+
+Execution engine
+-----------------
+Execution engine contains interpreter and JIT compiler.
+
+Interpreter is used to execute our program line by line procedure.
+
+JIT compiler is used to increase the execution speed of our program.
+
+
+
+Interview Questions
+===================
+
+Q) How many memories are there in java.
+
+We have five memories in java.
+
+1)Method Area
+2)Heap
+3)Java Stack 
+4)PC Register 
+5)Native method stack
+
+
+Q)What is Native method in java?
+
+A method which is developed by using some other language is called native method.
+
+
+Q)What is JIT compiler?
+
+It is a part of a JVM which is used to increase the execution speed of our program.
+
+
+Q)How many classloaders are there in java?
+
+We have three predefined classloaders in java.
+
+1)Bootstrap classloader (It loads rt.jar file)
+
+2)Extension classloader  (It loads all the jar files from ext folder)
+
+3)Application/System classloader (It loads .class file from classpath)
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

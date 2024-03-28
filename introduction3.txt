@@ -1,0 +1,237 @@
+Escape Characters / Escape Sequences
+====================================
+Escape characters are used to design our output in neat and clean manner.
+
+Every escape character starts with back slash(\) followed by a character.
+ex:
+	\n
+
+Mostly every escape character is placed inside output statement in java.
+ex:
+	System.out.println("\n");
+
+We have following list of escape characters in java.
+
+1) \n (new line)
+
+2) \t (horizontal tab)
+
+3) \b (back space)
+
+4) \r (carriage return)
+
+5) \f (form feeding)
+
+6) \\ (back slash)
+
+7) \" (double quote)
+
+8) \' (single quote)
+
+and etc.
+
+1) \n (new line)
+-----------------
+class  Ashwini
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\nTALENT");
+	}
+}
+o/p:
+	IHUB
+	TALENT
+
+2) \t (horizontal tab)
+------------------------
+class Badrinath
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\tTALENT");
+	}
+}
+o/p:
+	IHUB	TALENT
+
+
+
+3) \b (back space)
+-------------------
+class Radha
+{
+	public static void main(String[] args)
+	{
+		System.out.println("I\bHUBTALENT");
+	}
+}
+o/p:
+	HUBTALENT
+
+ex:
+----
+class Ajay
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\b\b\bTALENT");
+	}
+}
+o/p:
+	ITALENT
+
+4) \r (carriage return)
+-------------------------
+class Prakash
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\rTALENT");
+	}
+}
+o/p:
+	TALENT
+
+ex:
+---
+class Manisha
+{
+	public static void main(String[] args)
+	{
+		System.out.println("TALENT\rIHUB");
+	}
+}
+o/p:
+	IHUBNT 
+
+6) \\ (back slash)
+--------------------
+class Jyothi
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\\TALENT");
+	}
+}
+o/p:
+	IHUB\TALENT
+
+
+7) \" (double quote)
+----------------------
+class Chandu
+{	
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB\"TALENT");
+	}
+}
+o/p:
+	IHUB"TALENT
+
+
+8)\' (single quote)
+-------------------
+class Doni
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB'TALENT");
+		System.out.println("IHUB\'TALENT");
+	}
+}
+o/p:
+	IHUB'TALENT
+	IHUB'TALENT
+
+
+C program
+=========
+
+Q)Write a c program to display %d ? 
+
+void main()
+{
+	clrscr();
+	
+	printf("%d");	//0 
+	
+	getch();
+}
+
+ex:
+
+void main()
+{
+	clrscr();
+	
+	printf("%%d");	//%d 
+	
+	getch();
+}
+
+Screening Test program
+=======================
+Q)What will be the output of below code?
+
+class Example
+{
+	public static void main(String[] args)
+	{
+		System.out.print("\nle");
+		System.out.print("\bpi");
+		System.out.print("\rha");
+	}
+}
+o/p:
+	hai	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,514 @@
+============OOPS==================
+1Q) What is class?
+A class is a blue print of an object.
+A class is a collection of variables and methods.
+A class is a reusable component.
+A class will accept following modifiers.
+ex:
+default, public, final, abstract 
+We can declare a class as follow.
+syntax:
+optional 
+ |
+modifier class class_name <extends> Parent_classname
+ <implements> Interface_name
+{
+- // variables and methods
+}
+
+2Q)What is the difference between default class and public class?
+
+default class:-
+We can access default class within the package.
+ 
+
+ex: class A
+{
+}
+public class:-
+We can access public class within the package and outside of the package.
+ex: public class A
+{
+}
+
+
+3Q) What is final class?
+If we declare any class as final then creating child class is not possible.
+If we declare any class as final then extending some other class is not possible.
+ex:
+final class A
+{
+}
+class B extends A // invalid 
+{
+}
+
+4Q)What is abstract class ?
+
+If we declare any class as abstract then creating object of that class is not possible.
+ex: abstract class A
+{
+}
+
+5Q)What is object ?
+It is a outcome of a blue print.
+It is a instance of a class.
+Instance means allocating memory for our data members.
+Object class
+Object class present in java.lang package.
+Object class consider as a parent class for every java program.
+Object class contains following methods.
+
+6Q)toString():-
+
+It is a method present in Object class.
+Whenever we are trying to display any object reference directly or indirectly toString() 
+method will be executed.
+
+7Q)Data Hiding?
+
+It is used to hide the data from the outsider.
+It means outside person must not access our data directly.
+Using private modifier we can implement data hiding concept.
+ex: class Account
+{
+private double balance;
+
+8Q)Types of objects?
+
+We have two types of objects.
+1)Immutable object
+After object creation if we perform any changes then for every change a new object
+will be created such behaviour is called immutable object.
+ex: String
+    Wrapper classes.
+
+2)Mutable object
+After object creation if we perform any changes then all the changes will reflect to single
+object such behaviour is called mutable object.
+ex: StringBuffer
+    StringBuilder
+
+9Q)What is singleton class?
+
+A class which allows us to create only one object is called singleton class.
+To declare a singleton class we required private constructor and static method.
+
+ex: class Singleton{
+private static Singleton singleton=null;
+private Singleton()
+{
+    }
+public static Singleton getInstance()
+{
+if(singleton==null)
+{
+singleton=new Singletone();
+}
+return singleton;
+}
+}
+
+10Q)What is hashcode?
+
+For every object , JVM will create a unique identifier number i.e hash code.
+ 
+In order to read hash code we need to use hashCode() method of Object class.
+ex:
+Test t=new Test();
+System.out.println(t.hashCode());
+
+11Q)What is Interfaces?
+
+Interface is a collection of zero or more abstract methods.
+Abstract method is a incomplete method which ends with semicolon and does not have any body.
+ex:
+public abstract void m1();
+It is not possible to create object for interfaces.
+To write the implementation of abstract methods of an interface we will use implementation class.
+It is possible to create object for implementation class because it contains method with body.
+By default , every abstract method is a public and abstract.
+Interface contains only constants i.e public static final.
+Syntax: interface interface_name
+{
+- //constants
+- //abstract method
+}
+In java, a class can't extends more then one class.
+But interface can extends more then one interface
+
+
+12Q)What is Abstract class?
+
+Abstract class is a collection of zero or more abstract methods and zero or more concrete methods.
+A "abstract" keyword is applicable only for class and method but not for variable.
+It is not possible to create object for abstract class.
+ 
+To write the implementation of abstract methods of an abstract class we will use sub classes.
+By default every abstract method is a public and abstract.
+Abstract class contains only instance variables.
+syntax:
+abstract class class_name
+{ - //instance variables 
+- //abstract methods
+- //concrete methods
+}
+
+13Q))What is Abstraction?
+
+Hiding the internal implementation and high lighting the set of services is called abstraction.
+Best example of abstraction is ATM machine, coffee machine,calcular, phone and etc.
+The main advantages of abstraction are.
+
+1)It gives security because it will hide internal implementation from the outsider.
+2)Enhancement becomes more easy without effecting enduser they can perform any 
+changes in our internal system.
+3)It provides flexibility to the enduser to use the system.
+4)It improves maintainability of an application
+
+14Q)What is Encapsulation?
+The process of encapsulating or grouping variables and it's associate methods in a 
+single entity is called encapsulation.
+In encapsulation for every variable we need to declare setter and getter methods.
+A class is said to be encapsulated class if it supports data hiding + abstraction.
+The main advantages of encapsulation are.
+1)It gives security.
+ 
+15Q))What is Encapsulation?
+
+The process of encapsulating or grouping variables and it's associate methods in a 
+single entity is called encapsulation.
+In encapsulation for every variable we need to declare setter and getter methods.
+A class is said to be encapsulated class if it supports data hiding + abstraction.
+
+The main advantages of encapsulation are.
+
+1)It gives security.
+2)Enhancement becomes more easy.
+3)It provides flexibility to the enduser to use the system.
+4)It improves maintainability of an application.
+The main disadvantage of encpasulation is ,it will increase the length of our code and
+slow down the execution process.
+
+ex: class Employee
+{
+private int empId;
+//setter 
+public void setEmpId(int empId)
+{
+this.empId=empId;
+}
+//getter
+public int getEmpId()
+{
+return empId;}
+}
+
+16Q))What is the difference between POJO class and Java Bean class?
+POJO class:-
+
+A class is said to be pojo class if it supports following two properties.
+1)All variables must be private.
+2)All variables must have setter and getter method.
+Java Bean class:-
+
+A class is said to be java bean class if it supports following four properties.
+1)A class must be public.
+2)A class must have constructor.
+3)All variables should be private.
+4)All variables should have setter and getter method.
+Note:
+Every Java bean class is a pojo class.
+But every pojo class is not a java bean class.
+
+
+                          *CONSTRUCTORS*
+
+
+
+1Q)What is Constructor?
+
+Constructor is a special method which is used to initialize an object.
+ex: Test t=new Test();
+Having same name as class name is called constructor.
+A constructor will execute when we create an object.
+A constructor does not allowed any returntype.
+A constructor will accept following modifiers.
+ex:default, public, private , protected 
+
+ex:class A
+{
+A()
+{
+System.out.println("0-arg const");
+}
+}
+
+ex: class A
+{
+A(int i)
+ 
+{
+System.out.println("parameterized const");
+}
+}
+
+2Q)What is default constructor?
+
+It is a compiler generated constructor for every java program where we are not 
+defining any constructor.
+Default constructor is a empty implementation.
+To see the default constructor we need to use below command.
+ex: javap -c Test
+
+3Q)What is Method Overloading?
+
+Having same method name with different parameters in a single class is called 
+method overloading.
+All the methods present in a class are called overloaded methods.
+Method resolution will taken care by compiler based on reference type.
+ex: class A
+{
+public void m1()
+{
+System.out.println("0-arg method");
+}
+public void m1(int i)
+{
+System.out.println("int-arg method");
+}
+}
+
+4Q) Can we overload main method in java?
+
+Yes, we can overload main method in java.But JVM always execute main method 
+with String[] parameter only.
+
+5Q) What is Method Overriding?
+
+Having same method name with same parameters in two different classes is called 
+method overriding.
+Methods which are present in parent class are called overridden methods.
+Methods which are present in child class are called overriding methods.
+Method resolution will taken care by JVM based on runtime objects.
+ 
+
+ex: class A
+{
+public void m1()
+{
+System.out.println("ITALENT");
+}
+}
+class B extends A
+{
+public void m1()
+{
+System.out.println("IIHUB TALENT");
+}
+}
+
+6Q)Can we override final methods in java?
+
+ans) No , we can't override final methods in java.
+
+7Q)Can we override static methods in java?
+
+No , we can't override static methods in java.
+
+8Q)Can we override main method in java?
+No , we can't override main method because it is static.
+
+9Q)What is this keyword?
+
+A "this" keyword is a java keyword which is used to refer current class
+object reference.
+We can utility this keyword in following ways.
+i)To refer current class variables
+ii)To refer current class methods
+iii)To refer current class constructors
+ 
+10Q)what is Super Keyword?
+A "super" keyword is a java keyword which is used to refer super class object
+reference.
+We can utility super keyword in following ways.
+i)To refer super class variables
+ii)To refer super class methods
+iii)To refer super class constructors 
+
+11Q) What is API?
+
+API stands for application programming interface.
+It is a base for the programmer to develop software applications.
+API is a collection of packages.
+We have three types of API's.
+
+1)Predefined API:
+Built-In API is called predefined API.
+
+2)Userdefined API:
+API which is created by the user based on the requirement is 
+called userdefined API.
+3)Third party API:
+API which is given by third party vendor.
+ex: JAVAZOOM API , Text API and etc.
+
+
+12Q)What is polymorphism?
+
+Polymorphism has taken from Greek Word.
+Here poly means many and morphism means forms.
+The ability to represent in different forms is called polymorphism.
+In java, polymorphism is categories into two types.
+1)Compile time polymorphism/ static polymorphism / early binding.
+A polymorphism which exhibits at compile time is called compile time polymorphism.
+ex: Method overloading
+Method Hiding 
+2)Runtime polymorphism / dynamic polymorphism / late binding. 
+A polymorphism which exhibits at runtime is called run time polymorphism.
+ex: Method overriding
+
+13Q)What is Inheritance?
+
+Inheritance is a mechanism where one class will derived from the properties from 
+another class.
+Using "extends" keyword we can implements inheritance.
+We have five types of inheritance.
+1) Single level inheritance.
+2) Multi level inheritance
+3) Multiple inheritance
+4) Hierarchical inheritance
+5) Hybrid inheritance
+
+14Q) What are the inheritance not support by java?
+
+ Java does not support multiple inheritance and hybrid inheritance.
+
+15Q)Why java does not support multiple inheritance?
+
+ There is a chance of raising ambiguity problem that's why java does not 
+ support multiple inheritance.
+ 
+ Ex:
+P1.m1() p2.m1()
+|-----------------------------|
+          |
+        C.m1();
+ But from java 1.8 version onwards java supports multiple inheritance through
+ default methods of interface.
+
+16Q)Composition:-
+
+Without existing container object there is a no chance of having contained object then the relationship 
+between
+container object and contained object is called composition which is strongly association.
+ 
+17Q)Aggregation:-
+
+Without existing container object there is a chance of having contained object then the relationship 
+between container object and contained object is called aggregation which is loosely association.
+
+
+18Q)What is marker interface?
+
+An interface which does not have any constants and abstract methods is called marker interface.
+In general, empty interface is called marker interface.
+Marker interfaces are empty interfaces but by using those interfaces we get some ability to do.
+ex: Serializable
+Remote
+ 
+19Q) What is inner class?
+
+Sometimes we will declare a class inside another class such concept 
+is called inner class.
+ex:class Outer_Class
+{
+class Inner_Class
+{
+- //code to be execute 
+}
+}
+Inner classes introduced as a part of event handling to remove GUI bugs.
+But because of powerful features and benefits of inner classes, Programmers started 
+to use inner classes in regular programming code.
+Inner class does not accept static members i.e static variable, static method and 
+static block.
+ 
+20Q)What is package?
+
+Package is a collection of classes, interfaces, enums ,Annotations, Exceptions and Errors.
+Enum,Exception and Error is a special class and Annotation is a special interface.
+In general, a package is a collection of classes and interfaces.
+Package is also known as folder or a directory.
+In java, packages are divided into two types.
+All package names we need to declare under lower case letters only.
+
+1)Predefined packages:
+Built-In packages are called predefined packages.
+ex: java.lang , java.io, java.util
+
+2)Userdefined package:
+Packages which are created by ther user are called userdefined packages.
+It is highly recommanded to use package name in the reverse order of url.
+ex: com.ihubtalent.www
+
+                                        *Arrays*
+
+1Q)what is Array?
+
+In a normal variable we can store only one value at a time.
+To store more then one value in a single variable then we need to use arrays.
+
+Definition:
+Array is a collection of homogeneous data elements.
+The main advantages of array are.
+1)We can represent multiple elements using single variable name.
+ ex: int[] arr={10,20,30};
+2)Performance point of view array is recommanded to use.
+The main disadvantages of array are.
+1)Arrays are fixed in size.Once if we create an array there is no chance of increasing and decreasing the 
+size of an array.
+
+2)To use array concept in advanced we should know what is the size of an array which is always not 
+possible.
+In java, arrays are categorised into three types.
+1)Single Dimensional Array
+2)Two Dimensional Array / Double Dimensional Array 
+3)Multi-Dimensional Array / Three Dimensional Array
+
+2Q)What is the difference b/w length and length() ?
+
+Length:- 
+It is a final variable which is
+applicable  for arrays only 
+It will return size of an array.
+ 
+length():-
+It is a final method which is applicable only for String objects.
+It will return number of character present in String.
+
+
+3Q)What is Recursion?
+
+A method is called self for many number of times is called Recursion.
+Recursion is similar to loopings.
+In Recursion post Increment and Decrement are used.
+
+4Q)What is Enum?
+Enum is a group of named constants.
+Enum concept is introduced in 1.5 version.
+Using enum we can create our own datatype called enumerated datatype.
+When compare to old language enum, java enum is more powerful.
+Enum is a special class.
+To declare enum we need to use enum keyword.
+
+Syntax:
+enum enum_type_name
+{
+val1,val2,....,valN
+}
+Ex:
+enum Months
+{
+JAN,FEB,MAR
+}

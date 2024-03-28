@@ -1,0 +1,76 @@
+1Q)Write a java program to accept two positive number and display prime numbers in between them?
+
+Input:
+	10    20
+
+output:
+	11  13  17  19
+
+2Q)Write a java program to insert one element based on given location in a given array? 
+
+input:
+	arr =  5 3 7 4 9 1 6
+
+	loc =  3
+
+	element = 100
+
+output:
+	5 3 7 100 4 9 1 6
+
+
+3Q)Write a java program to find out missing element from given array?
+
+input:
+	arr = 3  5  1  4  
+
+output:
+	missing element = 2
+
+
+4Q)Write a java program to delete first occurance of an array element from given element?
+
+input:
+	arr =  6 5 7 2 3 1 5 9 10 4 5 
+
+	element = 5;
+
+output:
+	6 7 2 3 1 5 9 10 4 5 
+
+
+5Q)write a java program to concatinate two arrays and display them in sorting order?
+
+input:
+	arr1 = 5 7 10 8 1
+	arr2 = 9 4 2  6 3 
+
+output:
+	1 2 3 4 5 6 7 8 9 10
+
+
+6Q)Write a java program to find out most repeating element in given array?
+
+input:
+	4 5 6 1 2 1 7 4 4 9 5 4 3
+
+output:
+	4 
+
+
+7Q)Write a java program to display unique elements from given array?
+
+input:
+	4 5 6 2 5 6 7 9 1 
+
+output:
+	4  2  7  9  1
+
+
+8Q)Write a java program to find out highest element from given array?
+
+input:
+	arr = 6 3 5 4 7 9 
+
+output:
+	Highest element : 9

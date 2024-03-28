@@ -1,0 +1,126 @@
+Modules in java
+===============
+We have three modules in java.
+
+				Java
+	|-------------------------|------------------------|
+     JSE/J2SE		        JEE/J2EE		JME/J2ME	
+(Java Standard Edition)	(Java Enterprise Edition) (Java Micro Edition)	
+
+> Standalone app	> Distributed App 	> Mobile App
+
+> Desktop app 		> Enterprises App 
+
+> Two-tier app 		> ERP-App 
+
+			> N-Tier App 
+
+
+> Standalone app
+-------------------
+A normal java program which contains main method is called standalone application.
+ex:
+	class Test
+	{
+		public static void main(String[] args)
+		{
+			-
+			-
+			-
+		}
+	}
+
+> Desktop app 
+--------------
+It is a software application which is developed to perform perticular task.
+
+ex:
+	Control panel 
+	Recycle bin 
+	VLC Media player 
+	and etc.
+
+> Two-tier app 
+----------------
+Having more then one tier is called two-tier application.
+
+Diagram: java3.1
+Diagram: java3.2
+
+
+> Distributed App 
+------------------
+In client-server application, if multiple clients sending the request to main server then main server will distribute the request to it's parallel servers to reduce the burdun of main server such type of application is called distribtued application.
+
+Diagram: java3.3
+
+> Enterprises App 
+-------------------
+An application which deals with large business complex logic by taking the support of middleware services is called enterprises application.
+
+Here middleware services means authentication,autherization,malware production,firewall,security and etc.
+
+ex:
+	Facebook
+	Online shopping websites
+
+> ERP-App 
+-----------
+ERP stands for Enterprise Resource Planning.
+It is used to maintain the data in a enterprise.
+
+Diagram: java3.4
+
+> N-Tier App 
+-------------
+Having more then two tiers is called N-tier application.
+
+Diagram: java3.5
+
+
+> Mobile App
+------------
+It is a software application or a program which is developed for wireless network devices like phone,cell, tab, cellular and etc rather then laptop's and pc's.
+
+ex:
+	Gpay
+	PhonePay
+	TempleRun
+	and etc.
+
+Now a days, To develop mobile applications we are using following technologies.
+ex:
+	Andriod
+	React Native
+	Flutter
+	Swift Programming 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

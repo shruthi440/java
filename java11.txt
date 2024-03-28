@@ -1,0 +1,732 @@
+Typecasting 
+============
+The process of converting from one datatype to another datatype is called typecasting.
+
+In java, typecasting can be done in two ways.
+
+1)Implicit typecasting 
+
+2)Explicit typecasting 
+
+1)Implicit typecasting 
+-----------------------
+If we want to store smaller value into a bigger variable then we need to use implicit typecasting.
+
+A compiler is responsible to perform implicit typecasting.
+
+There is no possibility to loss the information.
+
+It is also known as widening or upcasting.
+
+We can perform implicit typecasting as follow.
+
+ex:
+	byte -->short
+			-->
+				int -->	long  ---> float ---> double	
+			-->
+		char
+
+ex:1
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		byte b=10;
+
+		long l=b;
+
+		System.out.println(l); //10
+	}
+}
+
+ex:2
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		char ch='a';
+
+		int i=ch;
+
+		System.out.println(i); //97
+	}
+}
+
+ex:3
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+
+		float f=i;
+
+		System.out.println(f); //10.0
+	}
+}
+
+
+2)Explicit typecasting 
+----------------------
+If we want to store bigger value into a smaller variable then we need to use explicit typecasting.
+
+A programmer is responsible to perform explicit typecasting.
+
+There is a possibility to loss the information.
+
+It is also known as Narrowing or Downcasting.
+
+We can perform explicit typecastin as follow.
+
+ex:
+	byte <--short
+			<--
+				int <--	long  <--- float <--- double	
+			<--
+		char
+
+ex:1
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		float f=10.5f;
+
+		int i=(int)f;
+
+		System.out.println(i); //10
+	}
+}
+
+ex:2
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=65;
+
+		char ch=(char)i;
+
+		System.out.println(ch);// A 
+	}
+}
+
+ex:3
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=130;
+
+		byte b=(byte)i;
+
+		System.out.println(b);// -126
+	}
+}
+
+
+Types of Blocks In java
+=========================
+A block is a set of statements which is enclosed in a curly braces i.e {}.
+
+In java we have three types of blocks.
+
+1)Instance block
+
+2)Static block 
+
+3)Local block 
+
+1)Instance block
+---------------
+Instance block is used to intialize the instance variables.
+
+Instance block will execute at the time object creation.
+
+Instance block must and should declare immediately after the class but not inside methods and constructors.
+
+syntax:
+------
+	//instance block
+	{
+		-
+		- //set of stmts 
+		-
+	}
+
+ex:1
+----
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+	}
+}
+o/p:
+	main-method
+
+ex:2
+-----
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+		Test t=new Test();
+	}
+}
+o/p:
+	main-method
+	instance-block
+
+ex:3
+------
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		System.out.println("main-method");
+		Test t2=new Test();
+	}
+}
+o/p:
+
+	instance-block
+	main-method
+	instance-block
+
+ex:4
+----
+class Test  
+{
+	//instance variable
+	int i;
+
+	//instance block
+	{
+		i=100;
+	}
+
+	public static void main(String[] args) 
+	{
+		Test t=new Test();	
+		System.out.println(t.i); //100
+	}
+}
+
+2)Static block 
+--------------
+A static block is used to initialize the static variables.
+
+A static block will execute at the time of class loading.
+
+A static block must and should declare immediately after the class by using static keyword but not inside methods and constructors.
+
+syntax:
+	//static block
+	static
+	{
+		-
+		- //set of stmts 
+		-
+	}
+
+ex:1
+----
+class Test  
+{
+	//static block
+	static
+	{
+		System.out.println("static-block");
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+	}
+}
+o/p:
+	static-block
+	main-method
+
+ex:2
+------
+class Test  
+{
+	//instance block
+	{
+		System.out.println("instance-block");
+	}
+	//static block
+	static
+	{
+		System.out.println("static-block");
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+		Test t=new Test();
+	}
+}
+o/p:
+	static-block
+	main-method
+	instance-block
+
+ex:3
+----
+class Test  
+{
+	//static variable
+	static int i;
+
+
+	//static block
+	static
+	{
+		i=200;
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println(i); //200
+	}
+}
+
+3)Local block
+--------------
+A local block is used to initialize the local variable.
+
+A local block must and should declare inside the methods and constructors.
+
+A local block will execute just like normal statement.
+
+syntax:
+	//local block
+	{
+		-
+		- //set of stmts
+		-
+	}
+
+ex:1
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		//local block
+		{
+			System.out.println("stmt2");
+		}
+		System.out.println("stmt3");
+	}
+}
+o/p:
+	stmt1
+	stmt2
+	stmt3
+ex:2
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//local variable 
+		int i;
+
+		//local block
+		{
+			i=300;
+		}
+		System.out.println(i);
+	}
+}
+
+Interview Question
+=================
+Q) Can we execute java program without main method?
+
+Yes , Till java 6 verion it possible to execute java program without main method by using static block.But from java 7 version onwards it is not possible to execute java program without main method.
+
+ex:
+class Test  
+{
+	//static block
+	static
+	{
+		System.out.println("static-block");
+		System.exit(0);
+	}
+}
+
+Operators 
+==========
+Operator is a symbol which is used to perform some operations on operands.
+ex:
+	c = a + b; 
+
+	Here a,b & c are operands.
+	Here = and + are operators.
+
+It can be arithemetic operation, logical operation, bitwise operation and etc.
+
+We have following list of operators in java.
+
+1)Assignment operators 
+
+2)Ternary/Condtional operators 
+
+3)Bitwise operators 
+
+4)Logical operators 
+
+5)Relational operators 
+
+6)Shift operators 
+
+7)Arithmetic operators 
+
+8)Unary operators 
+
+1)Assignment operators 
+-----------------------
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=10;
+		i=20;
+		i=30;
+		System.out.println(i); // 30
+	}
+}
+Note:
+	Reinitialization is possible in  java.
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args)
+	{
+		final int i=10;
+		i=20;
+		i=30;
+		System.out.println(i); 
+	}
+}
+o/p:
+	C.T.E cannot assign a value to final variable
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args)
+	{
+		int i=1,2,3,4,5;
+
+		System.out.println(i);
+	}
+}
+o/p:
+	C.T.E : illegal start of expression
+
+ex:
+---
+class Test  
+{
+	//global variable
+	static int i=100;
+
+	public static void main(String[] args)
+	{
+		//local variable 
+		int i=200;
+
+		System.out.println(i); // 200
+	}
+}
+Note:
+	Here priority goes to local variable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

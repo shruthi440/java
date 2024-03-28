@@ -1,0 +1,499 @@
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int sum=0;
+		for(int i=1;i<=20;i++)
+		{
+			if(i%2==0)
+			{
+				sum+=i;
+			}
+			i=i+2;
+		}
+		System.out.println(sum);//30
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int sum=0;
+		for(int i=1;i<=20;i++)
+		{
+			if(i%2==0)
+			{
+				sum+=i;
+				i=i+2;
+			}
+		}
+		System.out.println(sum);//50
+	}
+}
+
+Q)Write a java display fibonacci series of a given number?
+
+fibonacci series : 0 1 1 2 3 5 8 
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+	
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+
+		int a=0,b=1,c;
+
+		System.out.print(a+" "+b+" ");
+
+		for(int i=1;i<=n;i++)
+		{
+				c=a+b;
+				System.out.print(c+" ");
+				a=b;
+				b=c;
+		}
+	}
+}
+
+Q)Write a java program to find out given number is prime or not?
+
+prime numbers :
+
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 
+31, 37, 41, 43, 47, 53, 59, 61, 67, 
+71, 73, 79, 83, 89, 97.
+
+ex:
+----
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+	
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		boolean flag=true;
+
+		for(int i=2;i<=n/2;i++)
+		{
+			if(n%i==0)
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true)
+			System.out.println("It is prime number");
+		else
+			System.out.println("It is not prime number");
+		
+	}
+}
+
+
+Q)Write a java program to find out given number is perfect or not?
+
+input:
+	6
+
+output:
+	It is a perfect number 
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+	
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the number :");
+		int n=sc.nextInt();
+		
+		int sum=0;
+		for(int i=1;i<n;i++)
+		{
+			if(n%i==0)
+			{
+				sum+=i;
+			}
+		}
+		if(sum==n)
+			System.out.println("It is perfect number");
+		else
+			System.out.println("IT is not perfect number");
+	}
+}
+
+Q)Write a java program to find out GCD(Greatest Common Divisor) of two numbers?
+
+input:
+	12   18
+
+output:
+	6 
+
+ex:
+--class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a=12,b=18,gcd=0;
+		
+		for(int i=1;i<=12 && i<=18;i++)
+		{
+			if((a%i==0) && (b%i==0))
+			{
+				gcd=i;
+			}
+		}
+		System.out.println("GCD of two numbers is ="+gcd);
+	}
+}
+
+
+Q)Write a java program to display prime numbers from 1 to 100?
+
+output:
+2, 3, 5, 7, 11, 13, 17, 19, 23, 
+29, 31, 37, 41, 43, 47, 53, 59, 
+61, 67, 71, 73, 79, 83, 89, 97.
+
+ex:
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int n=2;n<=100;n++)
+		{
+			boolean flag=true;
+
+			for(int i=2;i<=n/2;i++)
+			{
+				if(n%i==0)
+				{
+					flag=false;
+					break;
+				}
+			}
+			if(flag==true)
+				System.out.print(n+" ");
+		}
+	}
+}
+
+
+Various ways to declare java methods 
+=====================================
+There are four ways to declare methods in java.
+
+1) No returntype with No argument method 
+
+2) No returtype with Argument method 
+
+3) With returntype with No argument method 
+
+4) With returntype with Argument method 
+
+
+
+1) No returntype with No argument method 
+-----------------------------------------
+If there is no arguments then we need to ask inputs inside callie method.
+
+Q)Write a java program to perfrom sum of two numbers using no returntype with no argument method?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//caller method
+		sum();
+	}
+	//callie method 
+	public static void sum()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+
+		//logic
+		int c=a+b;
+		System.out.println("sum of two numbers is ="+c);
+	}
+}
+
+Q)Write a java program to perform swapping of two numbers using no returntype with no argument method?
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//caller
+		swap();
+	}
+	//callie method 
+	public static void swap()
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+
+		System.out.println("Before swapping a="+a+" and b="+b);
+
+		//logic
+		a=a+b;
+		b=a-b;
+		a=a-b;
+
+		System.out.println("After swapping a="+a+" and b="+b);
+	}
+}
+
+2) No returtype with Argument method 
+-----------------------------------
+If we have arguments then we need to ask inputs inside main method.
+
+Number of arguments depends upon number of inputs.
+
+Q)Write a java program to perform sum of two numbers using no returntype with argument method?
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+
+		//caller method 
+		sum(a,b);
+	}
+	//callie method
+	public static void sum(int a,int b)
+	{
+		int c=a+b;
+		System.out.println("sum of two numbers is ="+c);
+	}
+}
+
+Q)Write a java program to find out given number is even or odd by using no returntype with argument method?
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the  number :");
+		int n=sc.nextInt();
+
+		//caller method
+		find(n);
+		
+	}
+	//callie method
+	public static void find(int n)
+	{
+		if(n%2==0)
+			System.out.println("It is even number");
+		else
+			System.out.println("It is odd number");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

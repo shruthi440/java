@@ -1,0 +1,621 @@
+Vector
+======
+The underlying data structure is resizable array or growable array.
+
+Insertion order is preserved.
+
+Duplicate objectes are allowed.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+It implements Serializable,Cloneable and RandomAccess interface.
+
+All the methods present in Vector are synchronized.Hence we achieve thread safety.
+
+We have following methods in Vector class.
+ex:
+	addElement()
+	removeElementAt()
+	removeAllElements()
+	firstElement()
+	lastElement()
+	and etc.
+
+ex:
+----
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Vector<Integer> v=new Vector<Integer>();
+
+		System.out.println(v.capacity());
+
+		for(int i=1;i<=10;i++)
+		{
+			v.addElement(i);
+		}
+		System.out.println(v);//[1,2,3,4,5,6,7,8,9,10]
+
+		System.out.println(v.firstElement());//1
+		System.out.println(v.lastElement());//10
+
+		v.removeElementAt(5);
+		System.out.println(v);//[1, 2, 3, 4, 5, 7, 8, 9, 10]
+
+		v.removeAllElements();
+		System.out.println(v); //[]
+
+
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Vector<Integer> v=new Vector<Integer>();
+
+		System.out.println(v.capacity());
+
+		for(int i=1;i<=10;i++)
+		{
+			v.add(i);
+		}
+		System.out.println(v);//[1,2,3,4,5,6,7,8,9,10]
+
+		System.out.println(v.get(0));//1
+		System.out.println(v.get(v.size()-1));//10
+
+		v.remove(5);
+		System.out.println(v);//[1, 2, 3, 4, 5, 7, 8, 9, 10]
+
+		v.clear();
+		System.out.println(v); //[]
+	}
+}
+
+Stack
+=======
+It is a child class of Vector class.
+
+If we depend upon last in firt out(LIFO) order then we need to use stack.
+
+constructor
+-----------
+Stack s=new Stack();
+
+Methods
+--------
+push(Object obj)
+----------------
+	It is used to push the element to stack.
+pop()
+-----
+	It is used to delete the element from stack.
+
+peek()
+------
+	It will return toppest element from stack.
+
+isEmpty()
+--------
+	It will check stack is empty or not.
+
+search(Object obj)
+--------------------
+	It will return offset value if element is found otherwise it will return -1.
+
+ex:
+--
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		Stack<String> s=new Stack<String>();
+		s.push("A");
+		s.push("B");
+		s.push("C");
+		System.out.println(s);//[A,B,C]
+
+		s.pop();
+		System.out.println(s);//[A,B]
+
+		System.out.println(s.peek());//B 
+
+		System.out.println(s.isEmpty());//false
+
+		System.out.println(s.search("S")); // -1
+
+		System.out.println(s.search("A")); // 2
+
+	}
+}
+
+
+Set 
+====
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity where duplicate objects are not allowed and order is not preserved.
+
+Diagam: java35.1
+
+
+HashSet
+--------
+The underlying data structure is Hashtable.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it will take hash code of an object.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+It implements Serializable and Cloneable interface.
+
+ex:
+---
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		HashSet hs=new HashSet();
+		hs.add("one");
+		hs.add("five");
+		hs.add("nine");
+		System.out.println(hs); //[nine, one, five]
+		hs.add("one");
+		System.out.println(hs); //[nine, one, five]
+		hs.add(10);
+		System.out.println(hs); //[nine, one, 10, five]
+		hs.add(null);
+		System.out.println(hs); //[null, nine, one, 10, five]
+
+	}
+}
+
+
+LinkedHashSet
+---------------
+It is a child class of HashSet class.
+
+LinkedHashSet is exactly same as HashSet class with following differences.
+
+HashSet					LinkedHashSet
+--------				--------------
+The underlying data structure is 	The underlying data structure is Hashtable 
+Hashtable.				and LinkedList.
+
+Insertion order is not preserved.	Insertion order is preserved.
+
+It is introduced in 1.2v.		It is introduced in 1.4v.
+
+ex:
+---
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		LinkedHashSet lhs=new LinkedHashSet();
+		lhs.add("one");
+		lhs.add("five");
+		lhs.add("nine");
+		System.out.println(lhs); //[one, five, nine]
+		lhs.add("one");
+		System.out.println(lhs); //[one, five, nine]
+		lhs.add(10);
+		System.out.println(lhs); //[one, five, nine, 10]
+		lhs.add(null);
+		System.out.println(lhs); //[one, five, nine, 10, null]
+
+	}
+}
+
+TreeSet
+---------
+The underlying data structure is BALANCED TREE.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it will take sorting order of an object.
+
+Hetrogeneous objects are not allowed otherwise we will get ClassCastException.
+
+Null insertion is not possible otherwise we will get NullPointerException.
+
+ex:
+---
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		TreeSet ts=new TreeSet();
+		ts.add(10);
+		ts.add(1);
+		ts.add(5);
+		ts.add(7);
+		System.out.println(ts); //[1, 5, 7, 10]
+
+		ts.add(1);
+		System.out.println(ts); //[1, 5, 7, 10]
+
+		//ts.add("hi");
+		//System.out.println(ts); //R.E ClassCastException
+
+		//ts.add(null);
+		//System.out.println(ts); // R.E NullPointerException
+
+	}
+}
+
+Q)What is the difference between Comparable and Comparator interface?
+
+Comparable 
+-----------
+Comparable is an interface which is present in java.lang package.
+
+It contains only one method i.e compareTo() method.
+
+If we depend upon default natural sorting order then we need to use Comparable interface.
+ex:
+	obj1.compareTo(obj2)
+
+	It will return -ve if obj1 comes before obj2.
+	It will return +ve if obj1 comes after obj2.
+	It will return 0 if both objects are same
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("A".compareTo("Z")); // -25
+
+		System.out.println("Z".compareTo("A")); //   25
+
+		System.out.println("K".compareTo("K")); //   0
+		
+	}
+}
+
+Comparator
+----------
+Comparator interface present in java.util package.
+
+Comparator interface contains following two methods i.e compare() and equals() method.
+
+ex:
+	public int compare(Object obj1,Object obj2)
+
+	It will return +ve if obj1 comes before obj2.
+	It will return -ve if obj1 comes after obj2.
+	It will return 0 if both objects are same.
+
+ex:
+
+	public boolean equals(Object o)
+
+Implemention of equals() method is optional because it is present in Object class so it is available  through inheritance.
+
+If we depend upon customized sorting order then we need to use Comparator interface.
+
+ex:
+----
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>(new MyComparator());
+		ts.add(10);
+		ts.add(5);
+		ts.add(1);
+		ts.add(7);
+		System.out.println(ts); //[10,7,5,1]
+	}
+}
+class MyComparator implements Comparator 
+{
+	public int compare(Object obj1,Object obj2)
+	{
+		Integer i1=(Integer)obj1;
+		Integer i2=(Integer)obj2;
+
+		if(i1<i2)
+			return 1;
+		else if(i1>i2)
+			return -1;
+		else
+			return 0;
+
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		TreeSet<Integer> ts=new TreeSet<Integer>(new MyComparator());
+		ts.add(10);
+		ts.add(5);
+		ts.add(1);
+		ts.add(7);
+		System.out.println(ts); //[1,5,7,10]
+	}
+}
+class MyComparator implements Comparator 
+{
+	public int compare(Object obj1,Object obj2)
+	{
+		Integer i1=(Integer)obj1;
+		Integer i2=(Integer)obj2;
+
+		if(i1<i2)
+			return -1;
+		else if(i1>i2)
+			return 1;
+		else
+			return 0;
+
+	}
+}
+
+Interview Question 
+==================
+Q)Write a java program to check given String is balanced or not?
+
+input:
+	({[]})
+
+output:
+	It is balanced string 
+
+ex:
+
+import java.util.*;
+class Test
+{
+	public static void main(String[] args)
+	{
+		String str="({[[]})";
+
+		Stack<Character> stack=new Stack<Character>();
+
+		//for each loop 
+		for(char ch:str.toCharArray())
+		{
+			if(ch=='(' || ch=='{' || ch=='[')
+			{
+				stack.push(ch);
+			}
+			else if(ch==')' && !stack.isEmpty() && stack.peek()=='(')
+			{
+				stack.pop();
+			}
+			else if(ch=='}' && !stack.isEmpty() && stack.peek()=='{')
+			{
+				stack.pop();
+			}
+			else if(ch==']' && !stack.isEmpty() && stack.peek()=='[')
+			{
+				stack.pop();
+			}
+		}
+		
+		if(stack.isEmpty())
+			System.out.println("It is  balanced String");
+		else
+			System.out.println("It is not balanced String");
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

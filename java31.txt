@@ -1,0 +1,620 @@
+Q)Write a java program to find out given String is Anagram or not?
+
+input:
+	str1 = silent 
+	str2 = listen 
+
+output:
+	It is a anagram string
+
+ex:
+---
+import java.util.Arrays;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1="silent";
+		String str2="listen";
+
+		char[] carr1=str1.toCharArray();
+		char[] carr2=str2.toCharArray();
+
+		Arrays.sort(carr1); // e i l n s t 
+		Arrays.sort(carr2); // e i l n s t 
+
+
+		if(carr1.length!=carr2.length)
+		{
+			System.out.println("It is not an anagram string");
+			System.exit(0);
+		}
+
+		boolean flag=true;	
+		for(int i=0;i<carr1.length && i<carr2.length;i++)
+		{
+			if(carr1[i]!=carr2[i])
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true)
+			System.out.println("It is anagram string");
+		else
+			System.out.println("It is not anagram string");
+	}
+}
+
+StringBuffer
+=============
+If our content is not fixed then it is never recommanded to use String because
+for every change a new object will be created.
+
+To overcome this limitation Sun Micro System introduced StringBuffer.
+
+In StringBuffer all the required changes will be done in a single object only.
+
+constructor
+------------
+
+1)StringBuffer sb=new StringBuffer()
+--------------------------------------
+It will create empty StringBuffer object with default initial capacity of 16.
+
+If capacity reaches to maximum capacity then new capacity will be created with 
+below formulea.
+ex:
+	new capacity = current_capacity+1*2;
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer();
+
+		System.out.println(sb.capacity()); // 16
+
+		sb.append("abcdefghijklmnop");
+
+		System.out.println(sb.capacity()); // 16
+
+		sb.append("qr");
+
+		System.out.println(sb.capacity()); // 16+1*2=34
+	}
+}
+
+2)StringBuffer sb=new StringBuffer(int initialcapacity)
+------------------------------------------------------
+It will create StringBuffer object with specified initial capacity.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer(19);
+
+		System.out.println(sb.capacity()); // 19
+	
+	}
+}
+
+3)StringBuffer sb=new StringBuffer(String str)
+--------------------------------------------
+It will create StringBuffer object which is equivalent to String.
+
+Here capacity will be created with below formulea.
+
+	capacity = str.length() + 16
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb=new StringBuffer("bhaskar");
+
+		System.out.println(sb.capacity()); // 7 + 16 = 23
+	
+	}
+}
+
+Q)Write a java program to display reverse of a string?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+
+		String rev="";
+
+		StringBuffer sb=new StringBuffer(str);
+
+		rev=sb.reverse().toString();
+
+		System.out.println(rev);
+	
+	}
+}
+
+Q)Write a java program to find out given string is palindrome or not?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="madam";
+
+		String rev="";
+
+		StringBuffer sb=new StringBuffer(str);
+
+		rev=sb.reverse().toString();
+
+		if(str.equals(rev))
+			System.out.println("It is palindrome string");
+		else
+			System.out.println("It is not palindrome string");
+	
+	}
+}
+
+Q)Write a java program to display the string in given format?
+
+input:
+	ABBCCCDDDD
+output:
+	A1B2C3D4
+
+ex:
+---
+public class Test
+{
+    public static void main(String[] args) 
+	{
+		String str = "ABBCCCDDDD";               
+
+        	StringBuffer sb = new StringBuffer();
+
+        int count = 1;
+        for (int i = 0; i < str.length(); i++) 
+	{
+           
+            if (i < str.length() - 1 && str.charAt(i) == str.charAt(i + 1)) 
+	    {
+                count++;
+            } 
+	   else 
+	   {
+               
+                sb.append(str.charAt(i)).append(count);
+                count = 1; 
+            }
+        }
+       System.out.println(sb.toString());
+    }
+}
+
+StringBuilder
+==============
+StringBuilder is exactly same as StringBuffer with following differences.
+
+StringBuffer				StringBuilder
+------------				---------------
+All the methods present in StringBuffer	No method present in StringBuilder are synchronized.
+are synchronized.
+
+At a time only one thread is allowed	Multiple threads are allowed to execute. Hence we 
+to execute.Hence we can achieve thread	can't achieve thread safety.
+safety.
+
+Waiting time of a thread will increase	There is no waiting threads effectively performance
+effectively performance is low.		is high.
+
+It is introduced in 1.0v.		It is introduced in 1.5v.
+
+
+Note:
+------
+If our content not change frequently then we need to use String object.
+
+If our content change frequently where thread safety is required then we need to use StringBuffer object.
+
+If our content change frequently where thread safety is not required then we need to use
+StringBuilder object.
+
+
+StringTokenizer 
+================
+A StringTokenizer is a class which is present in java.util package.
+
+It is used to tokenize the String irrespective of regular expression.
+
+We can create StringTokenizer class object as follow.
+
+syntax:
+
+	StringTokenizer st=new StringTokenizer(String str,RegEx reg); 
+
+StringTokenizer class contains following methods.
+ex:
+	public int countTokens()
+	public boolean hasMoreTokens()
+	public String nextToken()
+	public boolean hasMoreElements()
+	public Object nextElement 
+
+
+ex:
+---
+import java.util.StringTokenizer;
+public class Test
+{
+    public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class");
+
+		System.out.println(st.countTokens());
+    }
+}
+Note:
+----
+	Here default regular expression is space.
+
+ex:2
+-----
+import java.util.StringTokenizer;
+public class Test
+{
+    public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+
+		System.out.println(st.countTokens());
+    }
+}
+
+ex:3
+----
+import java.util.StringTokenizer;
+public class Test
+{
+    public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+
+		while(st.hasMoreTokens())
+		{
+			String str=st.nextToken();
+			System.out.println(str);
+		}
+
+    }
+}
+
+ex:4
+-----
+import java.util.StringTokenizer;
+public class Test
+{
+    public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("This is java class"," ");
+
+		while(st.hasMoreElements())
+		{
+			String str=(String)st.nextElement();
+			System.out.println(str);
+		}
+
+    }
+}
+
+ex:5
+----
+import java.util.StringTokenizer;
+public class Test
+{
+    public static void main(String[] args) 
+	{
+		StringTokenizer st=new StringTokenizer("9,99,999",",");
+
+		while(st.hasMoreElements())
+		{
+			String str=(String)st.nextElement();
+			System.out.println(str);
+		}
+
+    }
+}
+
+Exception Handling
+==================
+
+Q)What is the difference between Exception and Error?
+
+Exception 
+---------
+Exception is a problem for which we can provide solution programmatically.
+
+Exception will raise due to syntax errors.
+
+ex:
+	FileNotFoundException 
+	IllegalArgumentException
+	NegativeArraySizeException 
+	and etc.
+
+Error
+------
+Error is a problem for which we can't provide solution programmatically.
+
+Error will raise due to lack of system resources.
+
+ex:
+	OutOfMemoryError 
+	StackOverFlowError
+	LinkageError 
+	and etc.
+
+As a part of java application development, it is a responsibility of a programmer to 
+provide smooth termination for every java program.
+
+We have two types of terminations.
+
+1) Smooth termination / Graceful termination 
+-------------------------------------------
+During the program execution suppose if we are not getting any interruption in the middle
+of the program such type of termination is called smooth termination.
+
+
+2) Abnormal termination 
+----------------------
+During the program execution suppose if we are getting some interruptions in the middle
+of the program such type of termination is called abnormal termination.
+ex:
+public class Test
+{
+    public static void main(String[] args) 
+    {
+		System.out.println(10/0);
+    }
+}
+
+If any exception raised in our program we must and should handle that exception otherwise
+our program will terminate abnormally.
+
+Here exception will display name of the exception, description of the exception and 
+line number of the exception.
+
+Exception
+==========
+It is a unwanted , unexpect event which disturbs normal flow of our program.
+
+Exceptions always raise at runtime so they are also known as runtime events.
+
+The main objective of exception handling is to provide graceful termination.
+
+In java exceptions are divided into two types.
+
+1)Predefined exceptions 
+
+2)Userdefined exceptions 
+
+1)Predefined exceptions 
+------------------------
+Built-In exceptions are called predefined exceptions.
+
+It is divided into two types.
+
+i) Checked Exceptions 
+--------------------
+Exceptions which are checked by the compiler at the time of compilation are called
+checked exceptions.
+ex:
+	FileNotFoundException
+	InterruptedException
+	IOException
+	EOFException 
+
+ii) Unchecked Exceptions 
+--------------------------
+Exceptions which are checked by the JVM at the time of runtime are called unchecked exceptions.
+ex:
+	ClassCastException
+	ArithmeticException
+	IllegalArgumentException 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

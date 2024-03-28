@@ -1,0 +1,481 @@
+OOPS
+======
+OOPS stands for Object Oriented Programming Structure/System.
+
+
+object oriented technology
+--------------------------
+A technology which provides very good environment to represent our data in
+the form objects is called object oriented technology.
+
+A technology is said to be object oriented if it support following features.
+
+ex:
+		class
+		object
+	 	Abstraction
+		Encapsulation
+		Inheritance and 
+		Polymorphism 
+
+class
+======
+A class is a collection of data members and behaviours.
+
+Here data members means variables, properties or fields.
+
+Here behaviours means methods, actions or characteristics.
+
+In general, a class is a collection of variables and methods.
+
+A class is a blue print of an object.
+
+A class will accept following modifiers.
+ex:
+		default
+		public
+		final
+		abstract 
+
+We can declare a class as follow.
+ex:
+			optional 
+			|
+		Modifier class class_name <extends> Parent_classname 
+										 	  <implements> Interface_name
+		{
+			-
+			-  // variables and methods 
+			-
+		}	
+
+Q)What is the difference between default class and public class?
+
+default class
+-------------
+If we declare any class as default then we can access that class within the package.
+
+ex:
+		class  Test
+		{
+			-
+			- // variables and methods 
+			-	
+		}
+
+public class
+------------
+If we declare any class as public then we can access that class within the package
+and outside of the package.
+
+ex:
+		public class  Test
+		{
+			-
+			- // variables and methods 
+			-	
+		}
+
+Q)What is final class?
+
+If we declare any class as final then extending some other class is not possible.
+
+or
+
+If we declare any class as final then creating child class is not possible.
+
+ex:
+		final class A 
+		{
+				-
+				- //code to be execute 
+				-
+		}
+		class B extends A    ----> invalid 
+		{
+				-
+				-
+				-
+		}
+
+
+Q)What is abstract class?
+
+If we declare any class as abstract then creating object of that class is not 
+possible.
+ex:
+		abstract class A 
+		{
+			-
+			- //code to be declare 
+			-
+		}
+		A a=new A(); ---> invalid 
+
+object
+=======
+It is a instance of a class.
+
+Allocating memory for our data members is called instance.
+
+It is a out come of blue print.
+
+Memory space will be allocated when we create an object.
+
+We can declare object as follow.
+
+syntax:
+			class_name  reference_variable=new  constructor();
+
+ex:
+			Test  t = new  Test();
+
+It is possible to create multiple objects in a single class.
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		Test t2=new Test();
+		Test t3=new Test();
+
+		System.out.println(t1.hashCode());
+		System.out.println(t2.hashCode());
+		System.out.println(t3.hashCode());
+
+		System.out.println(t1); //Test@Hexadecimalno
+		System.out.println(t2.toString());
+		System.out.println(t3.toString());
+	
+	}
+}
+
+hashCode()
+==========
+It is a method present in Object class.
+
+Whenever we create object for a class,JVM will create a unique identification 
+number i.e hash code.
+
+In order to read the hash code of an object we will use hashCode() method.
+
+Diagram: java23.1
+
+toString()
+==========
+It is a method present in Object class.
+
+Whenever we are trying to display any object reference , directly or indirectly
+toString() method will be executed.
+
+Data Hiding
+============
+Our data should not go out directly.
+
+It means outside person must not access our data directly.
+
+Using private modifier we can achieve data hiding concept.
+
+The main objective of data hiding is to provide security.
+
+ex:
+		class  Account
+		{
+				private double balance;
+				-
+				-
+				-	
+		}
+
+
+Abstraction
+============
+Hiding internal implementation and highlighting the set of services is called 
+abstraction.
+
+Using abstract classes and interfaces we will implements Abstraction.
+
+Best of example of abstract is GUI(Graphical User Interface) ATM machine where 
+bank people will hide internal implementation and hightlights the set of services 
+like banking, withdrawl, mini statement , deposit and etc.
+
+The main advantages of abstraction are 
+
+1) It gives security because it will hide internal implementation from the outsider.
+
+2) Enhancement becomes more easy because without effecting enduser they can perform
+   any changes in our internal system.
+
+3) It provides flexibility to enduser to use the system.
+
+4) It improves maintainability of an application.
+
+
+Encapsulation
+===============
+The process of encapsulating or grouping variables and it's associate methods 
+in a single entity is called encapsulation.
+
+A class is said to be encapsulated class if it supports data hiding + abstraction.
+
+Diagram: java23.2
+
+The main objective of encapsulation is to protect the data and abstraction 
+is used to hide the data.
+
+In encapsulation , for every variable we need to write setter and getter methods.
+
+Diagram: java23.3
+
+The main advantages of encapsulation are
+
+1) It gives security.
+
+2) Enhancement becomes more easy.
+
+3) It provides flexibility to the enduser to use the system.
+
+4) It improves maintainability of an application.
+
+The main disadvantage of encapsulation is , it will increase the length of our code 
+and slow down the execution process.
+
+
+approach1
+-----------
+ex:
+----
+class Student
+{
+	private int studId;
+	private String studName;
+	private double studFee;
+
+	//setter methods 
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+
+	//getter methods 
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(10000d);
+
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+
+approach2
+---------
+class Student
+{
+	private int studId;
+	private String studName;
+	private double studFee;
+
+	//setter methods 
+	public void setStudId(int studId)
+	{
+		this.studId=studId;
+	}
+	public void setStudName(String studName)
+	{
+		this.studName=studName;
+	}
+	public void setStudFee(double studFee)
+	{
+		this.studFee=studFee;
+	}
+
+	//getter methods 
+	public int getStudId()
+	{
+		return studId;
+	}
+	public String getStudName()
+	{
+		return studName;
+	}
+	public double getStudFee()
+	{
+		return studFee;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Student s=new Student();
+		s.setStudId(101);
+		s.setStudName("Alan");
+		s.setStudFee(10000d);
+
+		System.out.println("Student Id :"+s.getStudId());
+		System.out.println("Student Name :"+s.getStudName());
+		System.out.println("Student Fee :"+s.getStudFee());
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+

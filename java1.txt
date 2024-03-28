@@ -1,0 +1,145 @@
+Comments in Java
+=================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+It is highly recommanded to use comments in our regular programming.
+
+Comments will not display in output because they won't compile by the compiler.
+
+In java, we have two types of comments.
+
+1)Single line comment 
+-------------------
+	It is used to comment a single line.
+	ex:
+		// comment here 
+
+2)Multiple line comment
+-------------------------
+	It is used to comment multiple lines.
+	ex:
+		/*
+			-
+			- comment here 
+			-
+		*/
+
+ex:
+---
+//class declaration 
+class Test
+{
+	//main method
+	public static void main(String[] args)
+	{
+
+		//variable declaration 
+		int x=10;
+
+		//output stmt
+		System.out.println(x);
+	}
+}
+
+Q)What is the difference between Python and Java?
+
+Python					Java
+-------					-------
+It is a product of Microsoft.		It is a product of Oracle Corporation.
+
+It is developed by Guido Van Rossum.	It is developed by James Gosling.
+
+It is a scripting language.		It is a object oriented programming 
+					language.
+
+It is a interpreted language.		It is a compiled language.
+
+It contains PVM.			It contains JVM.
+
+It is a dynamically typed language.	It is a statically typed language.
+
+It is less secure.			It is highly secured.
+
+Performance is low.			Performance is high.
+
+It contains less code.			It contains more code.
+
+Project
+=======
+A project is a collection of modules.
+ex:
+	customer module
+	registration module
+	login module 
+	payment module
+	report generation module 
+	and etc.
+
+Every project contains two domains.
+
+1)Technical Domain 
+------------------
+	It describes which which technology we developed our project.
+	ex:
+		Java
+
+2)Functional Domain 
+------------------
+	It describes state of a project.
+	ex:
+		Healthcare domain 
+		Banking domain 
+		Insaurance domain 
+		ERP domain 
+		and etc.
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

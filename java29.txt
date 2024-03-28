@@ -1,0 +1,577 @@
+case2:
+-------
+Q)What is the difference between == and .equals() method?
+
+==
+---
+It is a equality operator or comparision operator which always return boolean value.
+
+It is used for reference comparision or address comparision.
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("bhaskar");
+		String s2=new String("solution");
+		System.out.println(s1==s2); //false 
+	}
+}
+
+.equals()
+---------
+It is a method present in String which always return boolean value.
+
+It is used to content comparision and it is a case sensitive.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String s1=new String("bhaskar");
+		String s2=new String("bhaskar");
+		System.out.println(s1.equals(s2)); // true 
+	}
+}
+
+case3:
+-----
+Once if we create a String object.Two objects will be created one is on heap and another 
+is on SCP (String Constant Pool) area.But 's' always points to heap area only.
+
+ex:
+	String s=new String("bhaskar");
+
+Diagram: java29.1
+
+Object creation in SCP area is always optional.First JVM will check is there any object 
+is created with same content or not.If it is created then it simply refers to that object.
+If it is not created then it will create a new object.Hence there is no chance of having 
+duplicate objects in SCP area.
+
+SCP objects do not have any reference even though garbage collector can't access them.
+
+SCP objects will destroy at the time when JVM shutdowns or terminated.
+
+Diagram: java29.2
+
+Interning of String object
+--------------------------
+With the help of heap object reference if we need corresponding SCP object reference then 
+we need to use intern() method.
+
+Diagram: java29.3
+
+String important methods
+========================
+
+Q)Write a java program to accept string and display it?
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the string :");
+		String str=sc.next();
+		
+		System.out.println("Welcome :"+str);
+			
+	}
+}
+
+approach2
+--------
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the string :");
+		String str=sc.nextLine();
+		
+		System.out.println("Welcome :"+str);
+			
+	}
+}
+
+Q)Write a java program to remove special characters from given string?
+
+input:
+	Ih@ub_Tale$nt
+
+output:
+	IhubTalent
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="Ih@ub_Tale$nt12";
+
+		str=str.replaceAll("[^A-Za-z0-9]","");
+
+		System.out.println(str);
+			
+	}
+}
+
+Q)Write a java program to display given character which is present in given index?
+
+input:
+	str = "bhaskar";
+
+	index = 3;
+
+output:
+	s 
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		
+		int index=3;
+
+		char ch=str.charAt(index);
+
+		System.out.println(ch);
+			
+	}
+}
+
+Q)Write a java program to check given word present in a given string or not?
+
+input:
+	str= "This is java class";
+
+	word= "java";
+
+output:
+	It is present 
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java class";
+		
+		String word="java";
+
+		if(str.contains(word))
+			System.out.println("It is present");
+		else
+			System.out.println("It is not present");
+			
+	}
+}
+
+Q)Write a java program to convert lowercase string to uppercase string?
+
+input:
+	bhaskar
+
+output:
+	BHASKAR 
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		
+		str=str.toUpperCase();
+			
+		System.out.println(str);
+	}
+}
+
+Q)Write a java program to convert uppercase string to lowercase string?
+
+input:
+	BHASKAR 
+output:
+	bhaskar	
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="BHASKAR";
+		
+		str=str.toLowerCase();
+			
+		System.out.println(str);
+	}
+}
+
+Q)Write a java program to find out length of string ?
+
+input:
+	bhaskar 
+
+output:
+	7 
+
+ex:
+
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		
+		int len=str.length();
+
+		System.out.println(len);
+	}
+}
+
+Q)Write a java program to check both strings are equals or not?
+
+input:
+	str1 = "bhaskar"
+	str2 = "bhaskar" 
+output:
+	Both are equals
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1="bhaskar";
+
+		String str2="bhaskar";
+		
+		if(str1.equals(str2))
+			System.out.println("Both are equals");
+		else
+			System.out.println("Both are not equals");
+	}
+}
+
+approach2
+---------
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str1="bhaskar";
+
+		String str2="BHASKAR";
+		
+		if(str1.equalsIgnoreCase(str2))
+			System.out.println("Both are equals");
+		else
+			System.out.println("Both are not equals");
+	}
+}
+
+Q)Write a java program display the first occurance index number of a given character?
+
+input:
+	str= "bhaskar";
+
+	ch='a';
+
+output:
+	2 
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		char ch='a';
+
+		int index=str.indexOf(ch);
+		System.out.println(index);
+	}
+}
+
+Q)Write a java program display the last occurance index number of a given character?
+
+input:
+	str= "bhaskar";
+
+	ch='a';
+
+output:
+	5 
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="bhaskar";
+		char ch='a';
+
+		int index=str.lastIndexOf(ch);
+		System.out.println(index);
+	}
+}
+
+Q)Write a java program to display reverse a string?
+
+input:
+	hello 
+
+output:
+	olleh 
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+
+		char[] carr=str.toCharArray(); //  h   e   l   l   o 
+
+		String rev="";
+
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		
+		System.out.println(rev);
+	}
+}
+
+Q)Write a java program to check given string is palindrome or not?
+
+input:
+	racar 
+
+output:
+	It is a palindrome string
+
+ex:
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+
+		char[] carr=str.toCharArray(); //  h   e   l   l   o 
+
+		String rev="";
+
+		for(int i=carr.length-1;i>=0;i--)
+		{
+			rev+=carr[i];
+		}
+		
+		if(str.equals(rev))
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+	}
+}
+ 
+Q)Write a java program to find out reverse of a sentence?
+
+input:
+	This is Java class 
+
+output:
+	class Java is This 
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This is Java class";
+
+		String[] sarr=str.split(" "); // This    is    Java   class
+
+		String rev="";
+
+		for(int i=sarr.length-1;i>=0;i--)
+		{
+			rev+=sarr[i]+" ";
+		}
+
+		System.out.println(rev);		
+	}
+}
+
+Q)Write a java program to display reverse of each word in a given string?
+
+input:
+	This Is Java Class 
+
+output:
+	sihT sI avaJ ssalC 
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This Is Java Class";
+
+		String[] sarr=str.split(" "); // This    Is   Java   Class
+
+		//for each loop
+		String rev="";
+
+		for(String s:sarr)
+		{
+			//convert the string to char array
+			char[] carr=s.toCharArray(); // T   h   i   s 
+
+			for(int i=carr.length-1;i>=0;i--)
+			{
+				rev+=carr[i];
+			}
+			//space
+			rev+=" ";
+
+		}
+		System.out.print(rev);
+			
+	}
+}
+
+Q)Write a java program to find out number of uppercase letters,lowercase letters, digits,
+words and spaces?
+
+input:
+	This Is Java Class29
+output:
+	uppercase letters : 4
+	lowecase letters  : 11
+	digits		  : 2
+	words 		  : 4
+	spaces  	  : 3
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="This Is Java Class29";
+
+		char[] carr=str.toCharArray();
+
+		int upper=0,lower=0,digit=0,word=1,space=0;
+
+		for(char ch:carr)
+		{
+			if(ch>='A' && ch<='Z')
+			{
+				upper++;
+			}
+			else if(ch>='a' && ch<='z')
+			{
+				lower++;
+			}
+			else if(ch>='0' && ch<='9')
+			{
+				digit++;
+			}
+			else if(ch==' ')
+			{
+				word++;
+				space++;
+			}
+		}
+		System.out.println("Uppercase letters : "+upper);
+		System.out.println("Lowercase letters : "+lower);
+		System.out.println("Digits : "+digit);
+		System.out.println("Words : "+word);
+		System.out.println("Spaces : "+space);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

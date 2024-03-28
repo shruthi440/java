@@ -1,0 +1,1032 @@
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10/2;
+
+		System.out.println(i);//5
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10/20;
+
+		System.out.println(i);//0
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10%2;
+
+		System.out.println(i);//0
+	}
+}
+
+ex:
+-----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=20%100;
+
+		System.out.println(i);//20
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+
+		i+=20; // i = i + 20;
+
+		System.out.println(i);//30
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+
+		i*=2; // i = i * 2;
+
+		System.out.println(i);//20
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+
+		i/=4;
+
+		System.out.println(i);//2
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+
+		i%=4;
+
+		System.out.println(i);//2
+	}
+}
+
+2)Ternary operator / Conditional operator 
+------------------------------------------
+syntax:
+	(condition)?val1:value2;
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b=(5>2)?true:false;
+		System.out.println(b); //true 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b=(5>20)?true:false;
+		System.out.println(b); //false
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=(5>2)?1:0;
+		System.out.println(i);//1
+	}
+}
+
+Q)Write a java program to find out greatest of two numbers?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+
+		//logic 
+		int max=(a>b)?a:b;
+		System.out.println("Greatest of two numbers is ="+max);
+
+	}
+}
+
+Q)Write a java program to find out greatest of three numbers?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+
+		System.out.println("Enter the first number :");
+		int a=sc.nextInt();
+
+		System.out.println("Enter the second number :");
+		int b=sc.nextInt();
+
+		System.out.println("Enter the third number :");
+		int c=sc.nextInt();
+
+		//logic 
+		int max=(a>b)?((a>c)?a:c):((b>c)?b:c);
+		System.out.println("Greatest of three numbers is ="+max);
+
+	}
+}
+
+3)Logical Operators 
+----------------------
+
+Logical AND operator(&&) 
+------------------------
+Truth table
+------------
+T	T	= T
+T	F	= F 
+F	T	= F 
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		boolean b=(5>2) && (6<10);
+		System.out.println(b);//true 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		boolean b=(5>20) && (6<10);
+		System.out.println(b);//false
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		boolean b=(5>20) && (6<1);
+		System.out.println(b);//false 
+	}
+}
+
+Logical OR operator (||)
+-------------------------
+Truth table
+-----------
+T	T	= T 
+T	F	= T 
+F	T	= T 
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		boolean b=(5>20) || (6<1);
+		System.out.println(b);//false
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		boolean b=(5>2) || (6<1);
+		System.out.println(b);//true 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{	
+		boolean b=(5>2) && (6<1) || true;
+
+		System.out.println(b);// true 
+	}
+}
+
+Logical NOT operator (!)
+-------------------------
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		boolean b=!(5>2);
+
+		System.out.println(b);// false 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		boolean b=!(10 > 20);
+		System.out.println(b);// true
+	}
+}
+
+How to convert decimal to binary
+---------------------------------
+10   - decimal number 
+
+1010 - binary number 
+
+	2|10
+         ---- 0
+        2|5
+	 ---- 1
+        2|2
+	 ---- 0 	^
+	  1		|
+			|
+	-----------------
+	1010
+
+How to convert binary to decimal
+--------------------------------
+1010  - binary number 
+
+10    - decimal number 
+
+	1010 
+	    <----
+	0*1  + 1*2  + 0*4 +  1*8
+
+	0 + 2 + 0 + 8 = 10
+
+
+4)Bitwise Operators 
+--------------------
+
+Bitwise AND operator (&)
+-------------------------
+Bitwise AND operator deals with binary numbers.
+
+Truth table
+------------
+T	T	= T 
+T	F	= F 
+F	T	= F 
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		int a=10,b=15;
+
+		int c = a & b;
+
+		System.out.println(c); // 10
+	}
+}
+/*
+	10 - 1010
+	15 - 1111
+	---------
+	&  - 1010
+			  <----
+		 0*1 + 1*2 + 0*4 + 1*8 	  	
+
+		 0 + 2 + 0 + 8 = 10
+*/
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		int a=2,b=3;
+
+		int c = a & b;
+
+		System.out.println(c); // 2
+	}
+}
+/*
+	2 - 0010
+	3 - 0011
+	---------
+	& - 0010  
+		     <--
+		0*1 + 1*2 + 0*4 + 0*8 
+
+		0 + 2 + 0 + 0 = 2 
+*/
+
+Bitwise OR operator (|)
+---------------------
+Bitwise OR operator deals with binary numbers.
+
+Truth table
+----------
+T	T	= T 
+T	F	= T
+F	T	= T 
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		int a=10,b=5;
+
+		int c = a | b;
+
+		System.out.println(c); // 15
+	}
+}
+/*
+	10 - 1010
+	5  - 0101
+	---------
+	|  - 1111
+		     <--
+		1*1 + 1*2 + 1*4 + 1*8
+		1 + 2 + 4 + 8 = 15
+
+*/
+
+Bitwise XOR operator (^)
+-------------------------
+Bitwise XOR operator deals with binary numbers.
+
+Truth table
+------------
+T	T	= F
+T	F	= T 
+F	T	= T 
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		int a=10,b=15;
+
+		int c = a ^ b;
+
+		System.out.println(c); // 5
+	}
+}
+/*
+	10 - 1010
+	15 - 1111
+	---------
+	^  - 0101
+		     <--
+		1*1 + 0*2 + 1*4 + 0*8 
+		
+		1 + 0 + 4 + 0 = 5
+*/
+
+Bitwise NOT operator (~)
+------------------------
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		int i=~10;
+
+		System.out.println(i); // -11 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		int i= ~23;
+
+		System.out.println(i); // -24
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		int i= ~(-19);
+
+		System.out.println(i); // 18
+	}
+}
+
+5)Arithmetic operators
+---------------------
+% - modules 
+/ - division 
+* - multiplication 
++ - addition 
+- - subtraction 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		int i=4+6%3+8/2+6*6+9/100+6-20;
+
+		System.out.println(i); // 30
+	}
+}
+/*
+	4 + 6%3 + 8/2 + 6*6 + 9/100 + 6-20
+
+	4 + 0 + 4 + 36 +  0  -14 
+
+	44 - 14
+
+	30
+
+*/
+
+6)Shift operators 
+------------------
+
+Right shift operator (>>)
+--------------------------
+10 >> 1  =  10/2 
+
+10 >> 2  =  10/4
+
+10 >> 3  =  10/8
+
+10 >> 4  =  10/16
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 20 >> 3;
+
+		System.out.println(i); // 20/8 = 2
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 100 >> 5;
+
+		System.out.println(i); // 100 / 32 = 3
+		
+	}
+}
+
+Left shift operator (<<)
+--------------------------
+10 << 1  =  10*2 
+
+10 << 2  =  10*4
+
+10 << 3  =  10*8
+
+10 << 4  =  10*16
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 10 << 3;
+
+		System.out.println(i); //  10 * 8 = 80
+		
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 100 << 2;
+
+		System.out.println(i); //  100 * 4 = 400
+		
+	}
+}
+
+7)Relational operators 
+-----------------------
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(10 > 20); // false 
+
+		System.out.println(10 >= 20); // false 
+
+		System.out.println(10 < 20); //true 
+
+		System.out.println( 10 <= 10); // true 
+
+		System.out.println(10 == 10); // true 
+
+		System.out.println(10 == 20); // false 
+
+		System.out.println(10 != 20); // true 
+
+		System.out.println(10 != 10); // false 
+		
+	}
+}
+
+8) Unary operators 
+---------------------
+
+Increment/Decrement operators (++/--)
+-------------------------------------
+We have two types of increment operators.
+
+1)Pre increment 
+	ex:
+		++i;
+
+2)Post increment
+	ex:
+		i++;
+
+We have two types of decrement operators.
+
+1)Pre decrement
+	ex:
+		--i;
+
+2)Post decrement
+	ex:
+		i--;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
